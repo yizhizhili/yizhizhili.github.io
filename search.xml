@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>Spring的学习</title>
+      <link href="/2024/03/13/Spring/Spring%E5%AD%A6%E4%B9%A0/"/>
+      <url>/2024/03/13/Spring/Spring%E5%AD%A6%E4%B9%A0/</url>
+      
+        <content type="html"><![CDATA[<p>​</p><p>​由于之前我使用的是csdn书写的博客,所以有一部分的笔记书写在了上面</p><p><img src="http://t.csdnimg.cn/cC1gd" alt="文章地址"></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Spring </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>&#39;软件测试&#39;</title>
       <link href="/2024/03/01/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"/>
       <url>/2024/03/01/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/</url>
@@ -34,6 +53,25 @@
         <tags>
             
             <tag> vue </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>博客介绍</title>
+      <link href="/2024/02/03/%E5%8D%9A%E5%AE%A2%E4%BB%8B%E7%BB%8D%20-%20%E5%89%AF%E6%9C%AC/"/>
+      <url>/2024/02/03/%E5%8D%9A%E5%AE%A2%E4%BB%8B%E7%BB%8D%20-%20%E5%89%AF%E6%9C%AC/</url>
+      
+        <content type="html"><![CDATA[<hr><p>​</p><p>从我搭建这个网站博客,大概花费了一个星期左右,期间在好朋友的帮助下,解决了我对这个github+hexo框架搭建博客的一些曲解,这个博客的主题使用的是一款叫<code>butterfly</code>的主题,给我的感觉是比较适合用来记录自己的学习心得,它有不错的时间轴和分类的功能,后续我会把首页导航栏搜索的功能加入.</p><p>这是butterfly的官网</p><blockquote><p><a href="https://butterfly.js.org/link/">示例 | Butterfly</a></p></blockquote><p>目前本人是一名大二的在校学生,主要学习的是<code>java</code>这一个方面,由于下半年要进行比赛,后续会进行前端vue等技术的一个系统的学习,更新到我的学习笔记.近段时间在接触C语言,大差不差的刚好把基础的编译环境搭配好,使用的是<code>vscode</code>轻量级编译器+<code>mingw64</code>给我的感觉刚开始,在网上学习搭建环境的时候比较云里雾里,博主讲的五花八门,这里觉需要我们有一个整体的大局观,才不会出现一些小的问题,拖慢我们的学习进程</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 我的博客介绍 </tag>
             
         </tags>
       
