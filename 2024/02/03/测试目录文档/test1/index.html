@@ -1,0 +1,222 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Vue Soc的详解 | 戴晓军的个人博客</title><meta name="author" content="yizhizhili"><meta name="copyright" content="yizhizhili"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="1,为什么要提SOC这种宏大概念？都被袁隆平教授喂得太饱么， 并不是… 有些容易被忽视和错过的简单规则、代码框架介绍中，一言带过的知识，对我们来说却是极其珍贵，我们团队做的底层PAAS架构，所需的视角和需求都极为宏大。 面试中，我会提到IOC的问题， 这个问题是，控制反转，谁反了？ 谁是控制一方？ 谁是被控一方，现实生活中，有相关的案例吗？ —— 最后一问，很多经验丰富的人，都回答得不好。 ——">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue Soc的详解">
+<meta property="og:url" content="http://yizhizhili.github.io/2024/02/03/%E6%B5%8B%E8%AF%95%E7%9B%AE%E5%BD%95%E6%96%87%E6%A1%A3/test1/index.html">
+<meta property="og:site_name" content="戴晓军的个人博客">
+<meta property="og:description" content="1,为什么要提SOC这种宏大概念？都被袁隆平教授喂得太饱么， 并不是… 有些容易被忽视和错过的简单规则、代码框架介绍中，一言带过的知识，对我们来说却是极其珍贵，我们团队做的底层PAAS架构，所需的视角和需求都极为宏大。 面试中，我会提到IOC的问题， 这个问题是，控制反转，谁反了？ 谁是控制一方？ 谁是被控一方，现实生活中，有相关的案例吗？ —— 最后一问，很多经验丰富的人，都回答得不好。 ——">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://yizhizhili.github.io/img/logo/avatar.jpg">
+<meta property="article:published_time" content="2024-02-03T11:18:49.000Z">
+<meta property="article:modified_time" content="2024-04-11T00:54:27.141Z">
+<meta property="article:author" content="yizhizhili">
+<meta property="article:tag" content="vue">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yizhizhili.github.io/img/logo/avatar.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://yizhizhili.github.io/2024/02/03/%E6%B5%8B%E8%AF%95%E7%9B%AE%E5%BD%95%E6%96%87%E6%A1%A3/test1/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.12.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: {"appId":"J21OOINT9G","apiKey":"5b81bf110b5e959d7f7e0e5f0b8dda8e","indexName":"dxj","hits":{"per_page":6,"labels":null,"input_placeholder":"Search for Posts"},"languages":{"input_placeholder":"搜索文章","hits_empty":"找不到您查询的内容：${query}","hits_stats":"找到 ${hits} 条结果，用时 ${time} 毫秒"}},
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Vue Soc的详解',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-04-11 08:54:27'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/color.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/static-butterfly/dist/css/index.min.css"><meta name="generator" content="Hexo 7.1.1"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (false) {
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+  }
+})()</script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/../img/logo/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/../img/background/bg_1.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="戴晓军的个人博客"><img class="site-icon" src="/../img/logo/logo.jpg"/><span class="site-name">戴晓军的个人博客</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Vue Soc的详解</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-02-03T11:18:49.000Z" title="发表于 2024-02-03 19:18:49">2024-02-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-04-11T00:54:27.141Z" title="更新于 2024-04-11 08:54:27">2024-04-11</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>4分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Vue Soc的详解"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="1-为什么要提SOC这种宏大概念？"><a href="#1-为什么要提SOC这种宏大概念？" class="headerlink" title="1,为什么要提SOC这种宏大概念？"></a>1,为什么要提SOC这种宏大概念？</h1><p>都被袁隆平教授喂得太饱么， 并不是…</p>
+<p>有些容易被忽视和错过的简单规则、代码框架介绍中，一言带过的知识，对我们来说却是极其珍贵，我们团队做的底层PAAS架构，所需的视角和需求都极为宏大。</p>
+<p>面试中，我会提到IOC的问题， 这个问题是，控制反转，谁反了？ 谁是控制一方？ 谁是被控一方，现实生活中，有相关的案例吗？ —— 最后一问，很多经验丰富的人，都回答得不好。</p>
+<p>—— 我们谈的原则， 谈的理论，只有计算机领域里面用到了？ 你确定学科之间，顶层的设计逻辑会如此肤浅吗？ 不会， 要做好一个大平台， 就要深入消化通用理论。</p>
+<p>SOC跟我们目前至少是相关的， 我们的前端VUE框架开篇，就讲到了VUE的特性， 开篇介绍，就提到了SOC和渐进式架构。 渐进式我们下回再提，先谈谈SOC.</p>
+<p>武侠书(IT公司都喜欢谈武侠，比如阿里巴巴)里面有很多场景， 就是初入江湖的小生，拿着祖传的心法秘诀， 背得滚瓜烂熟，但常常被现实的王八拳打得落花流水，武功再高，也怕飞一般的菜单，因为【天下武功，唯快不破】， SOC并没有写到23中设计模式， 但其造诣是非常深刻的。</p>
+<ol>
+<li><h2 id="强调架构设计，要错落有致的分离变化点。"><a href="#强调架构设计，要错落有致的分离变化点。" class="headerlink" title="强调架构设计，要错落有致的分离变化点。"></a>强调架构设计，要错落有致的分离变化点。</h2><p>所有的设计， 最终就是要应对变化，什么变化？ 不同客户的变化， 客户今非昔比的变化，真实场景和办公室设计的变化。—— 不断的被现实抽打，不断的被自己的偏狭打脸。—— 这一点，在我们公司体现的淋漓尽致。 其他公司，单个项目，我想，一定没有如此深刻。痛苦且真实的发生着， 痛并快乐着，你在人生刚刚开始的阶段， 了解到这些复杂， 会呈现给你更加成熟的人生。</p>
+</li>
+<li><h2 id="去污染原则，-系统中一个部分发生了变化，不会影响到其他的变化。"><a href="#去污染原则，-系统中一个部分发生了变化，不会影响到其他的变化。" class="headerlink" title="去污染原则， 系统中一个部分发生了变化，不会影响到其他的变化。"></a>去污染原则， 系统中一个部分发生了变化，不会影响到其他的变化。</h2><p> jinglintu的变化，没有影响到kadingche，为什么？ 一个跟卡丁车完全类似的项目， 我们怎么代价最小的搞定他？ 比如zhiwei、jiheng他们之间是派生关系，派生关系，如何稳妥的去污染？</p>
+</li>
+</ol>
+<p>看看VUE是怎么做到SOC的:</p>
+<p>【后面补充:】</p>
+<p><strong>具体说明（概念比较难理解）</strong></p>
+<ol>
+<li><h3 id="好的架构设计必须把变化点错落有致地封装到软件系统的不同部分。要做到这一点，必须进行关注点分离。"><a href="#好的架构设计必须把变化点错落有致地封装到软件系统的不同部分。要做到这一点，必须进行关注点分离。" class="headerlink" title="好的架构设计必须把变化点错落有致地封装到软件系统的不同部分。要做到这一点，必须进行关注点分离。"></a>好的架构设计必须把变化点<strong>错落有致</strong>地封装到软件系统的不同部分。要做到这一点，必须进行关注点分离。</h3></li>
+<li><h3 id="好的架构必须使每个关注点相互分离，也就是说系统中的一个部分发生了变化，不会影响其他部分。"><a href="#好的架构必须使每个关注点相互分离，也就是说系统中的一个部分发生了变化，不会影响其他部分。" class="headerlink" title="好的架构必须使每个关注点相互分离，也就是说系统中的一个部分发生了变化，不会影响其他部分。"></a>好的架构必须使每个关注点相互分离，也就是说系统中的一个部分发生了变化，不会影响其他部分。</h3></li>
+<li><h3 id="即使需要改变，也能够清晰地识别出那些部分需要改变。"><a href="#即使需要改变，也能够清晰地识别出那些部分需要改变。" class="headerlink" title="即使需要改变，也能够清晰地识别出那些部分需要改变。"></a>即使需要改变，也能够清晰地识别出那些部分需要改变。</h3></li>
+<li><h3 id="如果需要扩展架构，影响将会最小化，已经可以工作的每个部分都将继续工作。"><a href="#如果需要扩展架构，影响将会最小化，已经可以工作的每个部分都将继续工作。" class="headerlink" title="如果需要扩展架构，影响将会最小化，已经可以工作的每个部分都将继续工作。"></a>如果需要扩展架构，影响将会最小化，已经可以工作的每个部分都将继续工作。</h3></li>
+</ol>
+<p><strong>上述论述中的四句话总结：</strong></p>
+<ul>
+<li><strong>“系统中的一个部分发生了变化，不会影响其他部分。”</strong></li>
+<li><strong>“即使需要改变，也能够清晰地识别出那些部分需要改变。”</strong></li>
+<li><strong>“如果需要扩展架构，将影响最小化，已经可以工作的每个部分都将继续工作。”</strong></li>
+</ul>
+<p>这里讲的是什么呢？ 要把一件事件做好，就要有你自己的专注点。</p>
+<p>每一部分会有各自的关注焦点。模组化程度，也就是区分关注焦点，</p>
+<p>1974年，<a href="https://link.zhihu.com/?target=https://zh.wikipedia.org/wiki/%E8%89%BE%E5%85%B9%E8%B5%AB%E5%B0%94%C2%B7%E6%88%B4%E5%85%8B%E6%96%AF%E7%89%B9%E6%8B%89">艾兹赫尔·戴克斯特拉</a>在他的文章《On the role of scientific thought》中提出:</p>
+<p>让我告诉你，对我来说所有聪明的思考的共通特性是什么。一个人要有系统地深入研究一门课题；必须将这们课题独立出来，记住在任何时候都只能关注其中一个方面。 比如说，我们知道一个程式必须是正确的，因此我们可以只抓这个点来研究；我们同时也清楚它应当是高效率的，我们可以改天来研究它的效率，等等。我们也可以问自己，程式是否是可取的（desirable）？如果是，为什么？相反的，同时应对好几个个方面不会得到任何结果！这就是我有时提到的“the separation of concerns（关注点分离）”。这个技巧就算不是完美可行的，也仍是我知道有效地组织思维的唯一可用技巧。这是就是我说的“将一个人的注意力集中在几个方面上”。这并不是说忽略其他方面，只是表明从这个方面来看，其他方面并无关紧要这一事实。这即是同时拥有单任务和多任务思维。</p>
+<p>15年之后，这个概念已经被人们所接受。1989年，Chris Reade写的《Elements of Functional Programming》有这样的描述[<a href="https://link.zhihu.com/?target=https://zh.wikipedia.org/wiki/%E5%85%B3%E6%B3%A8%E7%82%B9%E5%88%86%E7%A6%BB%23cite_note-6">6]</a>：</p>
+<p>一个程式在执行的时候一定会同时做以下几件事情：</p>
+<ol>
+<li><h3 id="描述所要解决的问题"><a href="#描述所要解决的问题" class="headerlink" title="描述所要解决的问题"></a>描述所要解决的问题</h3></li>
+<li><h3 id="按照计算的顺序分成几个部分执行"><a href="#按照计算的顺序分成几个部分执行" class="headerlink" title="按照计算的顺序分成几个部分执行"></a>按照计算的顺序分成几个部分执行</h3></li>
+<li><h3 id="同时处理内存管理"><a href="#同时处理内存管理" class="headerlink" title="同时处理内存管理"></a>同时处理内存管理</h3></li>
+</ol>
+<p>参考文献:</p>
+<p>【1】<a href="https://link.zhihu.com/?target=https://zh.wikipedia.org/wiki/%E5%85%B3%E6%B3%A8%E7%82%B9%E5%88%86%E7%A6%BB">WIKI关注点分离</a></p>
+<p>【2】<a href="https://link.zhihu.com/?target=https://www.cnblogs.com/wenhongyu/p/7992028.html">理论篇：关注点分离(Separation of concerns, SoC)</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://yizhizhili.github.io">yizhizhili</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://yizhizhili.github.io/2024/02/03/%E6%B5%8B%E8%AF%95%E7%9B%AE%E5%BD%95%E6%96%87%E6%A1%A3/test1/">http://yizhizhili.github.io/2024/02/03/%E6%B5%8B%E8%AF%95%E7%9B%AE%E5%BD%95%E6%96%87%E6%A1%A3/test1/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://yizhizhili.github.io" target="_blank">戴晓军的个人博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/vue/">vue</a></div><div class="post_share"><div class="social-share" data-image="/../img/logo/avatar.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/02/03/%E5%8D%9A%E5%AE%A2%E4%BB%8B%E7%BB%8D/" title="博客介绍"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">博客介绍</div></div></a></div><div class="next-post pull-right"><a href="/2024/02/01/markdown%E5%86%99%E6%B3%95/" title="markdown写法01"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">markdown写法01</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/02/19/vue/vue%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E5%92%8C%E8%AF%AD%E6%B3%95/" title="&#39;vue的基本概念和语法&#39;"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-19</div><div class="title">&#39;vue的基本概念和语法&#39;</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/../img/logo/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">yizhizhili</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://yizhizhili.github.io/img/logo/qq.png" target="_blank" title="QQ"><i class="fab fa-qq" style="color: rgb(65,166,208);"></i></a><a class="social-icon" href="https://github.com/yizhizhili" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:3143623706@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content"></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%8F%90SOC%E8%BF%99%E7%A7%8D%E5%AE%8F%E5%A4%A7%E6%A6%82%E5%BF%B5%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">1,为什么要提SOC这种宏大概念？</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%BA%E8%B0%83%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%EF%BC%8C%E8%A6%81%E9%94%99%E8%90%BD%E6%9C%89%E8%87%B4%E7%9A%84%E5%88%86%E7%A6%BB%E5%8F%98%E5%8C%96%E7%82%B9%E3%80%82"><span class="toc-number">1.1.</span> <span class="toc-text">强调架构设计，要错落有致的分离变化点。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%BB%E6%B1%A1%E6%9F%93%E5%8E%9F%E5%88%99%EF%BC%8C-%E7%B3%BB%E7%BB%9F%E4%B8%AD%E4%B8%80%E4%B8%AA%E9%83%A8%E5%88%86%E5%8F%91%E7%94%9F%E4%BA%86%E5%8F%98%E5%8C%96%EF%BC%8C%E4%B8%8D%E4%BC%9A%E5%BD%B1%E5%93%8D%E5%88%B0%E5%85%B6%E4%BB%96%E7%9A%84%E5%8F%98%E5%8C%96%E3%80%82"><span class="toc-number">1.2.</span> <span class="toc-text">去污染原则， 系统中一个部分发生了变化，不会影响到其他的变化。</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A5%BD%E7%9A%84%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%E5%BF%85%E9%A1%BB%E6%8A%8A%E5%8F%98%E5%8C%96%E7%82%B9%E9%94%99%E8%90%BD%E6%9C%89%E8%87%B4%E5%9C%B0%E5%B0%81%E8%A3%85%E5%88%B0%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%B8%8D%E5%90%8C%E9%83%A8%E5%88%86%E3%80%82%E8%A6%81%E5%81%9A%E5%88%B0%E8%BF%99%E4%B8%80%E7%82%B9%EF%BC%8C%E5%BF%85%E9%A1%BB%E8%BF%9B%E8%A1%8C%E5%85%B3%E6%B3%A8%E7%82%B9%E5%88%86%E7%A6%BB%E3%80%82"><span class="toc-number">1.2.1.</span> <span class="toc-text">好的架构设计必须把变化点错落有致地封装到软件系统的不同部分。要做到这一点，必须进行关注点分离。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A5%BD%E7%9A%84%E6%9E%B6%E6%9E%84%E5%BF%85%E9%A1%BB%E4%BD%BF%E6%AF%8F%E4%B8%AA%E5%85%B3%E6%B3%A8%E7%82%B9%E7%9B%B8%E4%BA%92%E5%88%86%E7%A6%BB%EF%BC%8C%E4%B9%9F%E5%B0%B1%E6%98%AF%E8%AF%B4%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E4%B8%80%E4%B8%AA%E9%83%A8%E5%88%86%E5%8F%91%E7%94%9F%E4%BA%86%E5%8F%98%E5%8C%96%EF%BC%8C%E4%B8%8D%E4%BC%9A%E5%BD%B1%E5%93%8D%E5%85%B6%E4%BB%96%E9%83%A8%E5%88%86%E3%80%82"><span class="toc-number">1.2.2.</span> <span class="toc-text">好的架构必须使每个关注点相互分离，也就是说系统中的一个部分发生了变化，不会影响其他部分。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%B3%E4%BD%BF%E9%9C%80%E8%A6%81%E6%94%B9%E5%8F%98%EF%BC%8C%E4%B9%9F%E8%83%BD%E5%A4%9F%E6%B8%85%E6%99%B0%E5%9C%B0%E8%AF%86%E5%88%AB%E5%87%BA%E9%82%A3%E4%BA%9B%E9%83%A8%E5%88%86%E9%9C%80%E8%A6%81%E6%94%B9%E5%8F%98%E3%80%82"><span class="toc-number">1.2.3.</span> <span class="toc-text">即使需要改变，也能够清晰地识别出那些部分需要改变。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E6%9E%9C%E9%9C%80%E8%A6%81%E6%89%A9%E5%B1%95%E6%9E%B6%E6%9E%84%EF%BC%8C%E5%BD%B1%E5%93%8D%E5%B0%86%E4%BC%9A%E6%9C%80%E5%B0%8F%E5%8C%96%EF%BC%8C%E5%B7%B2%E7%BB%8F%E5%8F%AF%E4%BB%A5%E5%B7%A5%E4%BD%9C%E7%9A%84%E6%AF%8F%E4%B8%AA%E9%83%A8%E5%88%86%E9%83%BD%E5%B0%86%E7%BB%A7%E7%BB%AD%E5%B7%A5%E4%BD%9C%E3%80%82"><span class="toc-number">1.2.4.</span> <span class="toc-text">如果需要扩展架构，影响将会最小化，已经可以工作的每个部分都将继续工作。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%8F%E8%BF%B0%E6%89%80%E8%A6%81%E8%A7%A3%E5%86%B3%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">1.2.5.</span> <span class="toc-text">描述所要解决的问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%89%E7%85%A7%E8%AE%A1%E7%AE%97%E7%9A%84%E9%A1%BA%E5%BA%8F%E5%88%86%E6%88%90%E5%87%A0%E4%B8%AA%E9%83%A8%E5%88%86%E6%89%A7%E8%A1%8C"><span class="toc-number">1.2.6.</span> <span class="toc-text">按照计算的顺序分成几个部分执行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8C%E6%97%B6%E5%A4%84%E7%90%86%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86"><span class="toc-number">1.2.7.</span> <span class="toc-text">同时处理内存管理</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/03/13/Spring/Spring%E5%AD%A6%E4%B9%A0/" title="Spring的学习">Spring的学习</a><time datetime="2024-03-13T06:00:00.000Z" title="发表于 2024-03-13 14:00:00">2024-03-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/03/01/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/" title="'软件测试'">'软件测试'</a><time datetime="2024-03-01T02:30:31.000Z" title="发表于 2024-03-01 10:30:31">2024-03-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/02/19/vue/vue%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E5%92%8C%E8%AF%AD%E6%B3%95/" title="'vue的基本概念和语法'">'vue的基本概念和语法'</a><time datetime="2024-02-19T05:51:49.000Z" title="发表于 2024-02-19 13:51:49">2024-02-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/02/03/%E5%8D%9A%E5%AE%A2%E4%BB%8B%E7%BB%8D/" title="博客介绍">博客介绍</a><time datetime="2024-02-03T11:18:49.000Z" title="发表于 2024-02-03 19:18:49">2024-02-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/02/03/%E6%B5%8B%E8%AF%95%E7%9B%AE%E5%BD%95%E6%96%87%E6%A1%A3/test1/" title="Vue Soc的详解">Vue Soc的详解</a><time datetime="2024-02-03T11:18:49.000Z" title="发表于 2024-02-03 19:18:49">2024-02-03</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By yizhizhili</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.12.0"></script><script src="/js/main.js?v=4.12.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/canvas-fluttering-ribbon.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = true;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/click-heart.min.js" async="async" mobile="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="algolia-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="search-wrap"><div id="algolia-search-input"></div><hr/><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-info"><div class="algolia-stats"></div><div class="algolia-poweredBy"></div></div></div></div></div><div id="search-mask"></div><script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.22.0/dist/algoliasearch-lite.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.63.0/dist/instantsearch.production.min.js"></script><script src="/js/search/algolia.js?v=4.12.0"></script></div></div></body></html>
