@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>Hello算法</title>
+      <link href="/2024/07/22/Hello%E7%AE%97%E6%B3%95/"/>
+      <url>/2024/07/22/Hello%E7%AE%97%E6%B3%95/</url>
+      
+        <content type="html"><![CDATA[<h1 id="一、什么是复杂度分析"><a href="#一、什么是复杂度分析" class="headerlink" title="一、什么是复杂度分析"></a>一、什么是复杂度分析</h1><h2 id="1、定义"><a href="#1、定义" class="headerlink" title="1、定义"></a>1、定义</h2><p>复杂度分析是计算机科学中用来衡量算法在最坏情况下运行时间或空间需求的一种方法。这种估算方法被称为渐近复杂度分析（asymptotic complexity analysis），简称复杂度分析。</p><ul><li><strong>时间效率</strong>：算法运行时间的长短。</li><li><strong>空间效率</strong>：算法占用内存空间的大小。</li></ul><h2 id="2、基本概念"><a href="#2、基本概念" class="headerlink" title="2、基本概念"></a>2、基本概念</h2><p>（1)<strong>时间复杂度</strong>：算法执行所需时间随输入数据大小增长的变化趋势。通常用大O表示法（O-notation）来描述。例如：</p><ul><li>O(1)：常数时间复杂度，表示算法执行时间与输入数据大小无关。</li><li>O(n)：线性时间复杂度，表示算法执行时间与输入数据大小成正比。</li><li>O(n^2)：平方时间复杂度，表示算法执行时间与输入数据大小的平方成正比。</li><li>O(log n)：对数时间复杂度，表示算法执行时间与输入数据的对数成正比。</li></ul><p>(2)<strong>空间复杂度</strong>：算法执行过程中所需的最大存储空间量，通常也用大O表示法来描述。例如：</p><ul><li>O(1)：常数空间复杂度，表示算法使用的空间与输入数据大小无关。</li><li>O(n)：线性空间复杂度，表示算法使用的空间与输入数据大小成正比。</li></ul><p>复杂度分析能够体现算法运行所需的时间和空间资源与输入数据大小之间的关系。<strong>它描述了随着输入数据大小的增加，算法执行所需时间和空间的增长趋势</strong>。</p><h2 id="3、总结"><a href="#3、总结" class="headerlink" title="3、总结"></a>3、总结</h2><ul><li>“时间和空间资源”分别对应时间复杂度（time complexity）和空间复杂度（space complexity）。</li><li>“随着输入数据大小的增加”意味着复杂度反映了算法运行效率与输入数据体量之间的关系。</li><li>“时间和空间的增长趋势”表示复杂度分析关注的不是运行时间或占用空间的具体值，而是时间或空间增长的“快慢”。</li></ul><h2 id="4、作用"><a href="#4、作用" class="headerlink" title="4、作用"></a>4、作用</h2><p><strong>复杂度分析克服了实际测试方法的弊端</strong>，体现在以下几个方面。</p><ul><li>它无需实际运行代码，更加绿色节能。</li><li>它独立于测试环境，分析结果适用于所有运行平台。</li><li>它可以体现不同数据量下的算法效率，尤其是在大数据量下的算法性能。</li></ul><p>一、 迭代与递归</p><p>1、迭代  </p><p>​1.1、for循环</p><p>2、while循环</p><p>3、嵌套循环</p><p>二、递归</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> markdown </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>&#39;vue手搓模板教程&#39;</title>
       <link href="/2024/07/12/vue/vue%E6%89%8B%E6%90%93%E6%A8%A1%E6%9D%BF%E6%95%99%E7%A8%8B/"/>
       <url>/2024/07/12/vue/vue%E6%89%8B%E6%90%93%E6%A8%A1%E6%9D%BF%E6%95%99%E7%A8%8B/</url>
@@ -150,11 +169,11 @@
     
     
     <entry>
-      <title>StockMaster</title>
-      <link href="/2024/01/25/StockMaster/"/>
-      <url>/2024/01/25/StockMaster/</url>
+      <title>My New Post</title>
+      <link href="/2024/01/25/My-New-Post/"/>
+      <url>/2024/01/25/My-New-Post/</url>
       
-        <content type="html"><![CDATA[<p>zheshiyizhangceshitupain</p><p><img src="/./../img/logosm2.png" alt="枯木逢春模板"></p><p><img src="/./../img/logo/qq.png" alt="qq链接"></p><p><img src="/./../img/background/bg_2.jpg" alt="qq链接"></p><p><img src="/./../img/logoss.jpg" alt="logoss"></p>]]></content>
+        <content type="html"><![CDATA[<p>zheshiyizhangceshitupain</p><p><img src="/./../img/%E6%9E%AF%E6%9C%A8%E9%80%A2%E6%98%A5%E6%A8%A1%E6%9D%BF.png" alt="枯木逢春模板"></p><video src="./../video/1.mp4"/>]]></content>
       
       
       
@@ -169,11 +188,11 @@
     
     
     <entry>
-      <title>My New Post</title>
-      <link href="/2024/01/25/My-New-Post/"/>
-      <url>/2024/01/25/My-New-Post/</url>
+      <title>StockMaster</title>
+      <link href="/2024/01/25/StockMaster/"/>
+      <url>/2024/01/25/StockMaster/</url>
       
-        <content type="html"><![CDATA[<p>zheshiyizhangceshitupain</p><p><img src="/./../img/%E6%9E%AF%E6%9C%A8%E9%80%A2%E6%98%A5%E6%A8%A1%E6%9D%BF.png" alt="枯木逢春模板"></p><video src="./../video/1.mp4"/>]]></content>
+        <content type="html"><![CDATA[<p>zheshiyizhangceshitupain</p><p><img src="/./../img/logosm2.png" alt="枯木逢春模板"></p><p><img src="/./../img/logo/qq.png" alt="qq链接"></p><p><img src="/./../img/background/bg_2.jpg" alt="qq链接"></p><p><img src="/./../img/logoss.jpg" alt="logoss"></p>]]></content>
       
       
       
