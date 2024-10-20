@@ -1,0 +1,555 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>C语言 | 戴晓军的个人博客</title><meta name="author" content="yizhizhili"><meta name="copyright" content="yizhizhili"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一、C语言关键字   关键字 描述 用途示例    auto 声明自动变量，即局部变量 auto int x &#x3D; 10;   break 跳出循环或switch语句 for (...) &#123; if (...) break; &#125;   case switch语句中的分支 switch (x) &#123; case 1: ...; break; &#125;   char 声明字符">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C语言">
+<meta property="og:url" content="http://yizhizhili.github.io/2024/09/07/C%E8%AF%AD%E8%A8%80/C%E8%AF%AD%E8%A8%80/index.html">
+<meta property="og:site_name" content="戴晓军的个人博客">
+<meta property="og:description" content="一、C语言关键字   关键字 描述 用途示例    auto 声明自动变量，即局部变量 auto int x &#x3D; 10;   break 跳出循环或switch语句 for (...) &#123; if (...) break; &#125;   case switch语句中的分支 switch (x) &#123; case 1: ...; break; &#125;   char 声明字符">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://yizhizhili.github.io/img/logo/avatar.jpg">
+<meta property="article:published_time" content="2024-09-07T04:00:00.000Z">
+<meta property="article:modified_time" content="2024-09-07T09:13:11.309Z">
+<meta property="article:author" content="yizhizhili">
+<meta property="article:tag" content="C">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yizhizhili.github.io/img/logo/avatar.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://yizhizhili.github.io/2024/09/07/C%E8%AF%AD%E8%A8%80/C%E8%AF%AD%E8%A8%80/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.12.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: {"appId":"J21OOINT9G","apiKey":"5b81bf110b5e959d7f7e0e5f0b8dda8e","indexName":"dxj","hits":{"per_page":6,"labels":null,"input_placeholder":"Search for Posts"},"languages":{"input_placeholder":"搜索文章","hits_empty":"找不到您查询的内容：${query}","hits_stats":"找到 ${hits} 条结果，用时 ${time} 毫秒"}},
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'C语言',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-09-07 17:13:11'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/color.css"><link rel="stylesheet" href="/css/index.min.css"><meta name="generator" content="Hexo 7.1.1"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (false) {
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+  }
+})()</script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/../img/logo/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">20</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">13</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/../img/background/bg_1.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="戴晓军的个人博客"><img class="site-icon" src="/../img/logo/logo.jpg"/><span class="site-name">戴晓军的个人博客</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">C语言</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-09-07T04:00:00.000Z" title="发表于 2024-09-07 12:00:00">2024-09-07</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-09-07T09:13:11.309Z" title="更新于 2024-09-07 17:13:11">2024-09-07</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">3.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>11分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="C语言"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><hr>
+<h1 id="一、C语言关键字"><a href="#一、C语言关键字" class="headerlink" title="一、C语言关键字"></a>一、C语言关键字</h1><table>
+<thead>
+<tr>
+<th>关键字</th>
+<th>描述</th>
+<th>用途示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>auto</code></td>
+<td>声明自动变量，即局部变量</td>
+<td><code>auto int x = 10;</code></td>
+</tr>
+<tr>
+<td><code>break</code></td>
+<td>跳出循环或switch语句</td>
+<td><code>for (...) &#123; if (...) break; &#125;</code></td>
+</tr>
+<tr>
+<td><code>case</code></td>
+<td>switch语句中的分支</td>
+<td><code>switch (x) &#123; case 1: ...; break; &#125;</code></td>
+</tr>
+<tr>
+<td><code>char</code></td>
+<td>声明字符型变量或函数返回类型</td>
+<td><code>char ch = &#39;A&#39;;</code></td>
+</tr>
+<tr>
+<td><code>const</code></td>
+<td>声明常量，即不可修改的变量</td>
+<td><code>const int MAX = 100;</code></td>
+</tr>
+<tr>
+<td><code>continue</code></td>
+<td>继续下一次循环，跳过本次循环的剩余部分</td>
+<td><code>for (...) &#123; if (...) continue; ... &#125;</code></td>
+</tr>
+<tr>
+<td><code>default</code></td>
+<td>switch语句中的默认分支</td>
+<td><code>switch (x) &#123; default: ...; &#125;</code></td>
+</tr>
+<tr>
+<td><code>do</code></td>
+<td>do-while循环的开始</td>
+<td><code>do &#123; ... &#125; while (condition);</code></td>
+</tr>
+<tr>
+<td><code>double</code></td>
+<td>声明双精度浮点型变量或函数返回类型</td>
+<td><code>double d = 3.14;</code></td>
+</tr>
+<tr>
+<td><code>else</code></td>
+<td>if语句中的else分支</td>
+<td><code>if (x &gt; 0) ...; else ...;</code></td>
+</tr>
+<tr>
+<td><code>enum</code></td>
+<td>声明枚举类型</td>
+<td><code>enum Color &#123; RED, GREEN, BLUE &#125;;</code></td>
+</tr>
+<tr>
+<td><code>extern</code></td>
+<td>声明外部变量或函数</td>
+<td><code>extern int globalVar;</code></td>
+</tr>
+<tr>
+<td><code>float</code></td>
+<td>声明单精度浮点型变量或函数返回类型</td>
+<td><code>float f = 2.718;</code></td>
+</tr>
+<tr>
+<td><code>for</code></td>
+<td>for循环的开始</td>
+<td><code>for (int i = 0; i &lt; 10; i++) ...;</code></td>
+</tr>
+<tr>
+<td><code>goto</code></td>
+<td>无条件跳转到指定标签</td>
+<td><code>goto label; label: ...;</code></td>
+</tr>
+<tr>
+<td><code>if</code></td>
+<td>if语句的开始</td>
+<td><code>if (x &gt; 0) ...;</code></td>
+</tr>
+<tr>
+<td><code>int</code></td>
+<td>声明整型变量或函数返回类型</td>
+<td><code>int x = 42;</code></td>
+</tr>
+<tr>
+<td><code>long</code></td>
+<td>声明长整型变量或函数返回类型</td>
+<td><code>long l = 123456789L;</code></td>
+</tr>
+<tr>
+<td><code>register</code></td>
+<td>声明寄存器变量，即建议编译器将变量存储在寄存器中</td>
+<td><code>register int i;</code></td>
+</tr>
+<tr>
+<td><code>return</code></td>
+<td>从函数返回</td>
+<td><code>int func() &#123; return 0; &#125;</code></td>
+</tr>
+<tr>
+<td><code>short</code></td>
+<td>声明短整型变量或函数返回类型</td>
+<td><code>short s = 10;</code></td>
+</tr>
+<tr>
+<td><code>signed</code></td>
+<td>声明有符号类型变量或函数返回类型</td>
+<td><code>signed char ch = -1;</code></td>
+</tr>
+<tr>
+<td><code>sizeof</code></td>
+<td>计算数据类型或变量的大小</td>
+<td><code>sizeof(int);</code></td>
+</tr>
+<tr>
+<td><code>static</code></td>
+<td>声明静态变量或函数</td>
+<td><code>static int count = 0;</code></td>
+</tr>
+<tr>
+<td><code>struct</code></td>
+<td>声明结构体类型</td>
+<td><code>struct Point &#123; int x, y; &#125;;</code></td>
+</tr>
+<tr>
+<td><code>switch</code></td>
+<td>switch语句的开始</td>
+<td><code>switch (x) &#123; case 1: ...; break; &#125;</code></td>
+</tr>
+<tr>
+<td><code>typedef</code></td>
+<td>定义新的类型名</td>
+<td><code>typedef unsigned int uint;</code></td>
+</tr>
+<tr>
+<td><code>union</code></td>
+<td>声明联合类型</td>
+<td><code>union Data &#123; int i; float f; &#125;;</code></td>
+</tr>
+<tr>
+<td><code>unsigned</code></td>
+<td>声明无符号类型变量或函数返回类型</td>
+<td><code>unsigned int u = 10;</code></td>
+</tr>
+<tr>
+<td><code>void</code></td>
+<td>声明无返回值的函数或无参数的函数，也可以用于声明指向任何类型的指针</td>
+<td><code>void func() &#123; ...; &#125;</code></td>
+</tr>
+<tr>
+<td><code>volatile</code></td>
+<td>声明易变变量，即可能会被其他进程或硬件修改的变量</td>
+<td><code>volatile int flag;</code></td>
+</tr>
+<tr>
+<td><code>while</code></td>
+<td>while循环的开始</td>
+<td><code>while (condition) &#123; ...; &#125;</code></td>
+</tr>
+</tbody></table>
+<p> 预处理器</p>
+<ul>
+<li><p><strong>宏定义</strong>：<code>#define identifier replacement</code></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> PI 3.14159</span></span><br></pre></td></tr></table></figure></li>
+<li><p><strong>条件编译</strong>：<code>#ifdef</code>, <code>#ifndef</code>, <code>#endif</code></p>
+</li>
+</ul>
+<p>文件操作</p>
+<ul>
+<li><strong>打开文件</strong>：<code>FILE *fopen(const char *filename, const char *mode);</code></li>
+<li><strong>读写文件</strong>：<code>fscanf()</code>, <code>fprintf()</code>, <code>fgets()</code>, <code>fputs()</code></li>
+<li><strong>关闭文件</strong>：<code>fclose(FILE *stream);</code></li>
+</ul>
+<hr>
+<h1 id="二、变量"><a href="#二、变量" class="headerlink" title="二、变量"></a>二、变量</h1><h3 id="C语言变量笔记"><a href="#C语言变量笔记" class="headerlink" title="C语言变量笔记"></a>C语言变量笔记</h3><h4 id="1-变量声明"><a href="#1-变量声明" class="headerlink" title="1. 变量声明"></a>1. 变量声明</h4><p>在C语言中，变量在使用前必须先声明。声明变量的语法格式如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">数据类型 变量名;</span><br></pre></td></tr></table></figure>
+<p>例如：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> age;</span><br><span class="line"><span class="type">float</span> height;</span><br><span class="line"><span class="type">char</span> initial;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-数据类型"><a href="#2-数据类型" class="headerlink" title="2. 数据类型"></a>2. 数据类型</h4><p>C语言提供了多种内置数据类型，常见的有：</p>
+<ul>
+<li><code>int</code>：整型</li>
+<li><code>float</code>：单精度浮点型</li>
+<li><code>double</code>：双精度浮点型</li>
+<li><code>char</code>：字符型</li>
+</ul>
+<p>此外，还有其他类型如<code>short</code>、<code>long</code>、<code>unsigned</code>等。</p>
+<h4 id="3-变量命名规则"><a href="#3-变量命名规则" class="headerlink" title="3. 变量命名规则"></a>3. 变量命名规则</h4><p>变量名必须遵循以下规则：</p>
+<ul>
+<li>变量名由字母（A-Z, a-z）、数字（0-9）和下划线（_）组成。</li>
+<li>变量名不能以数字开头。</li>
+<li>变量名区分大小写。</li>
+<li>不能使用C语言的关键字作为变量名。</li>
+</ul>
+<h4 id="4-变量初始化"><a href="#4-变量初始化" class="headerlink" title="4. 变量初始化"></a>4. 变量初始化</h4><p>变量可以在声明时进行初始化：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> age = <span class="number">25</span>;</span><br><span class="line"><span class="type">float</span> height = <span class="number">1.75</span>;</span><br><span class="line"><span class="type">char</span> initial = <span class="string">&#x27;J&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-变量的作用域"><a href="#5-变量的作用域" class="headerlink" title="5. 变量的作用域"></a>5. 变量的作用域</h4><p>变量的作用域是指变量在程序中可以被访问的范围。C语言中的变量作用域可以分为：</p>
+<ul>
+<li><strong>局部变量</strong>：在函数或代码块内部声明的变量，仅在声明它的函数或代码块内部有效。</li>
+<li><strong>全局变量</strong>：在所有函数外部声明的变量，可以在整个文件中访问。</li>
+</ul>
+<h4 id="6-变量的存储类别"><a href="#6-变量的存储类别" class="headerlink" title="6. 变量的存储类别"></a>6. 变量的存储类别</h4><p>C语言中的变量还有存储类别的概念，常见的存储类别有：</p>
+<ul>
+<li><code>auto</code>：自动变量，默认情况下，函数内部声明的变量都是自动变量。</li>
+<li><code>static</code>：静态变量，静态变量在程序运行期间一直存在。</li>
+<li><code>extern</code>：外部变量，用于在多个文件中共享变量。</li>
+<li><code>register</code>：寄存器变量，建议编译器将变量存储在寄存器中，以提高访问速度。</li>
+</ul>
+<h4 id="7-示例代码"><a href="#7-示例代码" class="headerlink" title="7. 示例代码"></a>7. 示例代码</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 全局变量</span></span><br><span class="line"><span class="type">int</span> globalVar = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">exampleFunction</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="comment">// 局部变量</span></span><br><span class="line">    <span class="type">int</span> localVar = <span class="number">5</span>;</span><br><span class="line">    <span class="type">static</span> <span class="type">int</span> staticVar = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Local variable: %d\n&quot;</span>, localVar);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Static variable: %d\n&quot;</span>, staticVar++);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    exampleFunction();</span><br><span class="line">    exampleFunction();</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Global variable: %d\n&quot;</span>, globalVar);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="8-变量的生命周期"><a href="#8-变量的生命周期" class="headerlink" title="8. 变量的生命周期"></a>8. 变量的生命周期</h4><p>变量的生命周期是指变量在程序运行期间存在的时间段：</p>
+<ul>
+<li><strong>自动变量</strong>：仅在函数或代码块执行期间存在。</li>
+<li><strong>静态变量</strong>：在程序运行期间一直存在。</li>
+<li><strong>全局变量</strong>：在程序运行期间一直存在。</li>
+</ul>
+<p>通过了解这些基本概念，可以更好地理解和使用C语言中的变量。</p>
+<h1 id="三、C语言的数据类型"><a href="#三、C语言的数据类型" class="headerlink" title="三、C语言的数据类型"></a>三、C语言的数据类型</h1><h4 id="1-基本数据类型"><a href="#1-基本数据类型" class="headerlink" title="1. 基本数据类型"></a>1. 基本数据类型</h4><ul>
+<li><p><strong>整型 (<code>int</code>, <code>short</code>, <code>long</code>, <code>long long</code>)</strong></p>
+<ul>
+<li>存储整数值。</li>
+<li><code>int</code>通常是最常用的整型，其大小依赖于实现，通常是32位。</li>
+<li><code>short</code>比<code>int</code>占用更少的空间，通常为16位。</li>
+<li><code>long</code>和<code>long long</code>用于存储更大的整数。</li>
+</ul>
+</li>
+<li><p><strong>无符号整型 (<code>unsigned int</code>, <code>unsigned short</code>, <code>unsigned long</code>, <code>unsigned long long</code>)</strong></p>
+<ul>
+<li>用于存储非负整数。</li>
+<li>与相应的有符号整型相比，它们具有相同的大小但没有负数范围。</li>
+</ul>
+</li>
+<li><p><strong>浮点型 (<code>float</code>, <code>double</code>, <code>long double</code>)</strong></p>
+<ul>
+<li>存储实数，即带有小数部分的数。</li>
+<li><code>float</code>通常提供约7位的有效数字。</li>
+<li><code>double</code>提供更高的精度，大约15位的有效数字。</li>
+<li><code>long double</code>提供最高的精度，但其具体实现依赖于编译器。</li>
+</ul>
+</li>
+<li><p><strong>字符型 (<code>char</code>)</strong></p>
+<ul>
+<li>用于存储单个字符，如字母、数字或其他符号。</li>
+<li>大小通常是8位。</li>
+</ul>
+</li>
+<li><p><strong>枚举类型 (<code>enum</code>)</strong></p>
+<ul>
+<li>定义一组枚举常量的集合，可以用来创建具有明确语义的类型。</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-字符串类型"><a href="#2-字符串类型" class="headerlink" title="2. 字符串类型"></a>2. 字符串类型</h4><p>虽然C语言本身没有内置的字符串类型，但是字符串可以通过字符数组来表示：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> str[] = <span class="string">&quot;Hello, World!&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-指针类型-pointer"><a href="#3-指针类型-pointer" class="headerlink" title="3. 指针类型 (pointer)"></a>3. 指针类型 (<code>pointer</code>)</h4><ul>
+<li>指针类型用于存储其他变量的地址。</li>
+<li>指针的类型与其所指向的数据类型相对应。<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> *pInt;</span><br><span class="line"><span class="type">char</span> *pChar;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="4-构造类型"><a href="#4-构造类型" class="headerlink" title="4. 构造类型"></a>4. 构造类型</h4><p>构造类型是由一个或多个基本类型组合而成的数据类型。</p>
+<ul>
+<li><p><strong>数组 (<code>array</code>)</strong></p>
+<ul>
+<li>固定大小的一系列相同类型元素的集合。<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> arr[<span class="number">10</span>]; <span class="comment">// 定义一个包含10个整数的数组</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p><strong>结构体 (<code>struct</code>)</strong></p>
+<ul>
+<li>可以包含不同数据类型的集合。<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">student</span> &#123;</span></span><br><span class="line">    <span class="type">char</span> name[<span class="number">50</span>];</span><br><span class="line">    <span class="type">int</span> age;</span><br><span class="line">    <span class="type">float</span> grade;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p><strong>联合 (<code>union</code>)</strong></p>
+<ul>
+<li>类似于结构体，但是所有的成员共享同一段内存区域。<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">union</span> <span class="title">data</span> &#123;</span></span><br><span class="line">    <span class="type">int</span> i;</span><br><span class="line">    <span class="type">float</span> f;</span><br><span class="line">    <span class="type">char</span> s[<span class="number">20</span>];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h5 id="4-1结构体和联合的区别"><a href="#4-1结构体和联合的区别" class="headerlink" title="4.1结构体和联合的区别**"></a><strong>4.1结构体和联合的</strong>区别**</h5><p>结构体（<code>struct</code>）和联合（<code>union</code>）是C语言中两种不同的数据结构，它们在内存管理和数据存储方面有着显著的区别。以下是结构体和联合的主要区别：</p>
+<h6 id="1-内存占用"><a href="#1-内存占用" class="headerlink" title="1. 内存占用"></a>1. 内存占用</h6><ul>
+<li><strong>结构体</strong>：结构体中的每个成员都有自己的内存空间，结构体的总大小是所有成员大小的总和（加上可能的内存对齐填充）。</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Example</span> &#123;</span></span><br><span class="line">    <span class="type">int</span> a;      <span class="comment">// 4 bytes</span></span><br><span class="line">    <span class="type">char</span> b;     <span class="comment">// 1 byte</span></span><br><span class="line">    <span class="type">float</span> c;    <span class="comment">// 4 bytes</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 总大小：4 + 1 + 4 = 9 bytes（可能会有内存对齐，实际大小可能会更大）</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>联合</strong>：联合中的所有成员共享同一块内存空间，联合的大小等于其最大成员的大小。</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">union</span> <span class="title">Example</span> &#123;</span></span><br><span class="line">    <span class="type">int</span> a;      <span class="comment">// 4 bytes</span></span><br><span class="line">    <span class="type">char</span> b;     <span class="comment">// 1 byte</span></span><br><span class="line">    <span class="type">float</span> c;    <span class="comment">// 4 bytes</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 总大小：4 bytes（最大成员的大小）</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="2-数据存储"><a href="#2-数据存储" class="headerlink" title="2. 数据存储"></a>2. 数据存储</h6><ul>
+<li><strong>结构体</strong>：结构体中的每个成员可以同时存储不同的值。</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Example</span> <span class="title">s</span>;</span></span><br><span class="line">s.a = <span class="number">10</span>;</span><br><span class="line">s.b = <span class="string">&#x27;A&#x27;</span>;</span><br><span class="line">s.c = <span class="number">3.14</span>;</span><br><span class="line"><span class="comment">// s.a, s.b, s.c 可以同时存储不同的值</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>联合</strong>：联合中的所有成员共享同一块内存，因此同一时刻只能存储一个成员的值。</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">union</span> <span class="title">Example</span> <span class="title">u</span>;</span></span><br><span class="line">u.a = <span class="number">10</span>;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, u.a); <span class="comment">// 输出 10</span></span><br><span class="line">u.c = <span class="number">3.14</span>;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%f\n&quot;</span>, u.c); <span class="comment">// 输出 3.14</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, u.a); <span class="comment">// 输出不确定的值，因为此时 u.a 的值已经被 u.c 覆盖</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="3-用途"><a href="#3-用途" class="headerlink" title="3. 用途"></a>3. 用途</h6><ul>
+<li><strong>结构体</strong>：结构体适用于需要同时存储多个不同类型数据的场景。例如，表示一个学生的信息，包括姓名、年龄、成绩等。</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Student</span> &#123;</span></span><br><span class="line">    <span class="type">char</span> name[<span class="number">50</span>];</span><br><span class="line">    <span class="type">int</span> age;</span><br><span class="line">    <span class="type">float</span> grade;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>联合</strong>：联合适用于需要在不同时间使用不同数据类型的场景，或者需要节省内存的场景。例如，在处理硬件寄存器时，不同的操作可能需要读写不同类型的数据。</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">union</span> <span class="title">Register</span> &#123;</span></span><br><span class="line">    <span class="type">int</span> asInt;</span><br><span class="line">    <span class="type">float</span> asFloat;</span><br><span class="line">    <span class="type">char</span> asChar[<span class="number">4</span>];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h6 id="4-举例"><a href="#4-举例" class="headerlink" title="4. 举例"></a>4. 举例</h6><ul>
+<li><strong>结构体示例</strong>：</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Point</span> &#123;</span></span><br><span class="line">    <span class="type">int</span> x;</span><br><span class="line">    <span class="type">int</span> y;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Point</span> <span class="title">p</span>;</span></span><br><span class="line">p.x = <span class="number">10</span>;</span><br><span class="line">p.y = <span class="number">20</span>;</span><br><span class="line"><span class="comment">// p.x 和 p.y 可以同时存储不同的值</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>联合示例</strong>：</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">union</span> <span class="title">Data</span> &#123;</span></span><br><span class="line">    <span class="type">int</span> i;</span><br><span class="line">    <span class="type">float</span> f;</span><br><span class="line">    <span class="type">char</span> c;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">union</span> <span class="title">Data</span> <span class="title">d</span>;</span></span><br><span class="line">d.i = <span class="number">10</span>;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, d.i); <span class="comment">// 输出 10</span></span><br><span class="line">d.f = <span class="number">3.14</span>;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%f\n&quot;</span>, d.f); <span class="comment">// 输出 3.14</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, d.i); <span class="comment">// 输出不确定的值，因为此时 d.i 的值已经被 d.f 覆盖</span></span><br></pre></td></tr></table></figure>
+
+<p>总结来说，结构体适用于需要同时存储多个不同类型数据的情况，而联合适用于需要在不同时间使用不同数据类型或者节省内存的情况。理解结构体和联合的区别对于编写高效和正确的C语言代码至关重要。</p>
+<h4 id="5-空类型-void"><a href="#5-空类型-void" class="headerlink" title="5. 空类型 (void)"></a>5. 空类型 (<code>void</code>)</h4><ul>
+<li><code>void</code>类型用于表示没有类型的情况，如函数返回值类型为<code>void</code>则表示该函数不返回任何值。</li>
+</ul>
+<h4 id="6-数据类型的修饰符"><a href="#6-数据类型的修饰符" class="headerlink" title="6. 数据类型的修饰符"></a>6. 数据类型的修饰符</h4><ul>
+<li><strong>限定词 (<code>qualifier</code>)</strong><ul>
+<li><code>const</code>：表示该变量的值是常量，不能被修改。</li>
+<li><code>volatile</code>：表示该变量的值可能会因外部因素而改变，即使没有对其赋值。</li>
+</ul>
+</li>
+</ul>
+<h4 id="7-类型转换"><a href="#7-类型转换" class="headerlink" title="7. 类型转换"></a>7. 类型转换</h4><ul>
+<li>显式转换（强制类型转换）<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="type">int</span>) <span class="number">3.14</span></span><br></pre></td></tr></table></figure></li>
+<li>隐式转换（自动类型转换）<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a = <span class="number">5</span>;</span><br><span class="line"><span class="type">double</span> b = a; <span class="comment">// 自动转换为double类型</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="8-示例代码"><a href="#8-示例代码" class="headerlink" title="8. 示例代码"></a>8. 示例代码</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">int</span> age = <span class="number">25</span>;</span><br><span class="line">    <span class="type">float</span> height = <span class="number">1.75</span>;</span><br><span class="line">    <span class="type">char</span> grade = <span class="string">&#x27;A&#x27;</span>;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">student</span> <span class="title">student</span> =</span> &#123;<span class="string">&quot;John Doe&quot;</span>, <span class="number">20</span>, <span class="number">3.8</span>&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Age: %d\n&quot;</span>, age);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Height: %.2f\n&quot;</span>, height);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Grade: %c\n&quot;</span>, grade);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Student Name: %s\n&quot;</span>, student.name);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="四、C语言变量扩展"><a href="#四、C语言变量扩展" class="headerlink" title="四、C语言变量扩展"></a>四、C语言变量扩展</h1><p>C语言变量的扩展涉及几个方面，包括变量类型的扩展、变量作用域的扩展、以及与变量相关的特性和技术。以下是对这些方面的详细解释：</p>
+<h3 id="1-变量类型的扩展"><a href="#1-变量类型的扩展" class="headerlink" title="1. 变量类型的扩展"></a>1. 变量类型的扩展</h3><h4 id="a-用户自定义类型"><a href="#a-用户自定义类型" class="headerlink" title="a. 用户自定义类型"></a>a. 用户自定义类型</h4><p>C语言允许用户通过<code>typedef</code>关键字来定义新的数据类型，这样可以提高代码的可读性和可维护性。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="type">unsigned</span> <span class="type">int</span> uint;</span><br><span class="line">uint age = <span class="number">25</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="b-结构体和联合体的复杂用法"><a href="#b-结构体和联合体的复杂用法" class="headerlink" title="b. 结构体和联合体的复杂用法"></a>b. 结构体和联合体的复杂用法</h4><p>结构体和联合体可以嵌套使用，形成更复杂的数据结构。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Address</span> &#123;</span></span><br><span class="line">    <span class="type">char</span> street[<span class="number">50</span>];</span><br><span class="line">    <span class="type">char</span> city[<span class="number">30</span>];</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Person</span> &#123;</span></span><br><span class="line">    <span class="type">char</span> name[<span class="number">50</span>];</span><br><span class="line">    <span class="type">int</span> age;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Address</span> <span class="title">addr</span>;</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-变量作用域的扩展"><a href="#2-变量作用域的扩展" class="headerlink" title="2. 变量作用域的扩展"></a>2. 变量作用域的扩展</h3><h4 id="a-静态变量"><a href="#a-静态变量" class="headerlink" title="a. 静态变量"></a>a. 静态变量</h4><p>使用<code>static</code>关键字可以使局部变量在函数调用之间保持其值，并且只在该文件内可见。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">increment</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">static</span> <span class="type">int</span> count = <span class="number">0</span>;</span><br><span class="line">    count++;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, count);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="b-外部变量"><a href="#b-外部变量" class="headerlink" title="b. 外部变量"></a>b. 外部变量</h4><p>使用<code>extern</code>关键字可以引用其他文件中定义的全局变量。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// file1.c</span></span><br><span class="line"><span class="type">int</span> globalVar = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// file2.c</span></span><br><span class="line"><span class="keyword">extern</span> <span class="type">int</span> globalVar;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-与变量相关的特性和技术"><a href="#3-与变量相关的特性和技术" class="headerlink" title="3. 与变量相关的特性和技术"></a>3. 与变量相关的特性和技术</h3><h4 id="a-指针和动态内存分配"><a href="#a-指针和动态内存分配" class="headerlink" title="a. 指针和动态内存分配"></a>a. 指针和动态内存分配</h4><p>C语言支持通过指针和标准库函数（如<code>malloc</code>和<code>free</code>）进行动态内存分配，这为变量的扩展提供了灵活性。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> *arr = (<span class="type">int</span>*)<span class="built_in">malloc</span>(<span class="number">10</span> * <span class="keyword">sizeof</span>(<span class="type">int</span>));</span><br><span class="line"><span class="keyword">if</span> (arr == <span class="literal">NULL</span>) &#123;</span><br><span class="line">    <span class="comment">// 处理内存分配失败的情况</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 使用完毕后释放内存</span></span><br><span class="line"><span class="built_in">free</span>(arr);</span><br></pre></td></tr></table></figure>
+
+<h4 id="b-位域"><a href="#b-位域" class="headerlink" title="b. 位域"></a>b. 位域</h4><p>位域允许在结构体中定义变量，并指定其占用的位数，这在处理硬件寄存器和节省内存时非常有用。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">BitField</span> &#123;</span></span><br><span class="line">    <span class="type">unsigned</span> <span class="type">int</span> flag1 : <span class="number">1</span>;</span><br><span class="line">    <span class="type">unsigned</span> <span class="type">int</span> flag2 : <span class="number">2</span>;</span><br><span class="line">    <span class="type">unsigned</span> <span class="type">int</span> flag3 : <span class="number">3</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="c-枚举"><a href="#c-枚举" class="headerlink" title="c. 枚举"></a>c. 枚举</h4><p>枚举类型可以增强代码的可读性，使变量的取值范围更加明确。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">Color</span> &#123;</span> RED, GREEN, BLUE &#125;;</span><br><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">Color</span> <span class="title">favoriteColor</span> =</span> BLUE;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-变量的初始化"><a href="#4-变量的初始化" class="headerlink" title="4. 变量的初始化"></a>4. 变量的初始化</h3><h4 id="a-列表初始化"><a href="#a-列表初始化" class="headerlink" title="a. 列表初始化"></a>a. 列表初始化</h4><p>C99标准引入了复合字面量和初始化列表，使得变量初始化更加灵活。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> arr[<span class="number">5</span>] = &#123; [<span class="number">0</span>] = <span class="number">1</span>, [<span class="number">4</span>] = <span class="number">5</span> &#125;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="b-静态初始化"><a href="#b-静态初始化" class="headerlink" title="b. 静态初始化"></a>b. 静态初始化</h4><p>静态变量和全局变量默认初始化为0，如果需要显式初始化，可以在定义时进行。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">static</span> <span class="type">int</span> count = <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://yizhizhili.github.io">yizhizhili</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://yizhizhili.github.io/2024/09/07/C%E8%AF%AD%E8%A8%80/C%E8%AF%AD%E8%A8%80/">http://yizhizhili.github.io/2024/09/07/C%E8%AF%AD%E8%A8%80/C%E8%AF%AD%E8%A8%80/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://yizhizhili.github.io" target="_blank">戴晓军的个人博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/C/">C</a></div><div class="post_share"><div class="social-share" data-image="/../img/logo/avatar.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/09/07/Linux/%E5%9C%A8Linux%E4%B8%AD%E9%83%A8%E7%BD%B2Java%20Web%E9%A1%B9%E7%9B%AE/" title="Linux部署Java web项目"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Linux部署Java web项目</div></div></a></div><div class="next-post pull-right"><a href="/2024/09/06/redis/%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%ADredis%E7%9A%84%E5%AE%89%E8%A3%85%E5%90%AF%E5%8A%A8%20(2)/" title="如何在虚拟机中安装启动redis"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">如何在虚拟机中安装启动redis</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/../img/logo/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">yizhizhili</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">20</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">13</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://yizhizhili.github.io/img/logo/qq.png" target="_blank" title="QQ"><i class="fab fa-qq" style="color: rgb(65,166,208);"></i></a><a class="social-icon" href="https://github.com/yizhizhili" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:3143623706@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content"></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81C%E8%AF%AD%E8%A8%80%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-number">1.</span> <span class="toc-text">一、C语言关键字</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%8F%98%E9%87%8F"><span class="toc-number">2.</span> <span class="toc-text">二、变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#C%E8%AF%AD%E8%A8%80%E5%8F%98%E9%87%8F%E7%AC%94%E8%AE%B0"><span class="toc-number">2.0.1.</span> <span class="toc-text">C语言变量笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E"><span class="toc-number">2.0.1.1.</span> <span class="toc-text">1. 变量声明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.0.1.2.</span> <span class="toc-text">2. 数据类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%8F%98%E9%87%8F%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99"><span class="toc-number">2.0.1.3.</span> <span class="toc-text">3. 变量命名规则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E5%8F%98%E9%87%8F%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">2.0.1.4.</span> <span class="toc-text">4. 变量初始化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E5%8F%98%E9%87%8F%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-number">2.0.1.5.</span> <span class="toc-text">5. 变量的作用域</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-%E5%8F%98%E9%87%8F%E7%9A%84%E5%AD%98%E5%82%A8%E7%B1%BB%E5%88%AB"><span class="toc-number">2.0.1.6.</span> <span class="toc-text">6. 变量的存储类别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81"><span class="toc-number">2.0.1.7.</span> <span class="toc-text">7. 示例代码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-%E5%8F%98%E9%87%8F%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-number">2.0.1.8.</span> <span class="toc-text">8. 变量的生命周期</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81C%E8%AF%AD%E8%A8%80%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">3.</span> <span class="toc-text">三、C语言的数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">3.0.0.1.</span> <span class="toc-text">1. 基本数据类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%B1%BB%E5%9E%8B"><span class="toc-number">3.0.0.2.</span> <span class="toc-text">2. 字符串类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E6%8C%87%E9%92%88%E7%B1%BB%E5%9E%8B-pointer"><span class="toc-number">3.0.0.3.</span> <span class="toc-text">3. 指针类型 (pointer)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E6%9E%84%E9%80%A0%E7%B1%BB%E5%9E%8B"><span class="toc-number">3.0.0.4.</span> <span class="toc-text">4. 构造类型</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#4-1%E7%BB%93%E6%9E%84%E4%BD%93%E5%92%8C%E8%81%94%E5%90%88%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">3.0.0.4.1.</span> <span class="toc-text">4.1结构体和联合的区别**</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1-%E5%86%85%E5%AD%98%E5%8D%A0%E7%94%A8"><span class="toc-number">3.0.0.4.1.1.</span> <span class="toc-text">1. 内存占用</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2-%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8"><span class="toc-number">3.0.0.4.1.2.</span> <span class="toc-text">2. 数据存储</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3-%E7%94%A8%E9%80%94"><span class="toc-number">3.0.0.4.1.3.</span> <span class="toc-text">3. 用途</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#4-%E4%B8%BE%E4%BE%8B"><span class="toc-number">3.0.0.4.1.4.</span> <span class="toc-text">4. 举例</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E7%A9%BA%E7%B1%BB%E5%9E%8B-void"><span class="toc-number">3.0.0.5.</span> <span class="toc-text">5. 空类型 (void)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="toc-number">3.0.0.6.</span> <span class="toc-text">6. 数据类型的修饰符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="toc-number">3.0.0.7.</span> <span class="toc-text">7. 类型转换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81"><span class="toc-number">3.0.0.8.</span> <span class="toc-text">8. 示例代码</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B%E3%80%81C%E8%AF%AD%E8%A8%80%E5%8F%98%E9%87%8F%E6%89%A9%E5%B1%95"><span class="toc-number">4.</span> <span class="toc-text">四、C语言变量扩展</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%89%A9%E5%B1%95"><span class="toc-number">4.0.1.</span> <span class="toc-text">1. 变量类型的扩展</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#a-%E7%94%A8%E6%88%B7%E8%87%AA%E5%AE%9A%E4%B9%89%E7%B1%BB%E5%9E%8B"><span class="toc-number">4.0.1.1.</span> <span class="toc-text">a. 用户自定义类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#b-%E7%BB%93%E6%9E%84%E4%BD%93%E5%92%8C%E8%81%94%E5%90%88%E4%BD%93%E7%9A%84%E5%A4%8D%E6%9D%82%E7%94%A8%E6%B3%95"><span class="toc-number">4.0.1.2.</span> <span class="toc-text">b. 结构体和联合体的复杂用法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%8F%98%E9%87%8F%E4%BD%9C%E7%94%A8%E5%9F%9F%E7%9A%84%E6%89%A9%E5%B1%95"><span class="toc-number">4.0.2.</span> <span class="toc-text">2. 变量作用域的扩展</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#a-%E9%9D%99%E6%80%81%E5%8F%98%E9%87%8F"><span class="toc-number">4.0.2.1.</span> <span class="toc-text">a. 静态变量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#b-%E5%A4%96%E9%83%A8%E5%8F%98%E9%87%8F"><span class="toc-number">4.0.2.2.</span> <span class="toc-text">b. 外部变量</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E4%B8%8E%E5%8F%98%E9%87%8F%E7%9B%B8%E5%85%B3%E7%9A%84%E7%89%B9%E6%80%A7%E5%92%8C%E6%8A%80%E6%9C%AF"><span class="toc-number">4.0.3.</span> <span class="toc-text">3. 与变量相关的特性和技术</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#a-%E6%8C%87%E9%92%88%E5%92%8C%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D"><span class="toc-number">4.0.3.1.</span> <span class="toc-text">a. 指针和动态内存分配</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#b-%E4%BD%8D%E5%9F%9F"><span class="toc-number">4.0.3.2.</span> <span class="toc-text">b. 位域</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#c-%E6%9E%9A%E4%B8%BE"><span class="toc-number">4.0.3.3.</span> <span class="toc-text">c. 枚举</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%8F%98%E9%87%8F%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">4.0.4.</span> <span class="toc-text">4. 变量的初始化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#a-%E5%88%97%E8%A1%A8%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">4.0.4.1.</span> <span class="toc-text">a. 列表初始化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#b-%E9%9D%99%E6%80%81%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">4.0.4.2.</span> <span class="toc-text">b. 静态初始化</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/23/java/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" title="Hello World">Hello World</a><time datetime="2024-09-23T02:15:49.000Z" title="发表于 2024-09-23 10:15:49">2024-09-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/08/Linux/Linux/" title="无题">无题</a><time datetime="2024-09-08T08:00:20.415Z" title="发表于 2024-09-08 16:00:20">2024-09-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/07/%E7%BD%91%E7%AB%99%E5%88%86%E4%BA%AB/" title="网站分享">网站分享</a><time datetime="2024-09-07T04:00:00.000Z" title="发表于 2024-09-07 12:00:00">2024-09-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/07/Linux/%E5%9C%A8Linux%E4%B8%AD%E9%83%A8%E7%BD%B2Java%20Web%E9%A1%B9%E7%9B%AE/" title="Linux部署Java web项目">Linux部署Java web项目</a><time datetime="2024-09-07T04:00:00.000Z" title="发表于 2024-09-07 12:00:00">2024-09-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/07/C%E8%AF%AD%E8%A8%80/C%E8%AF%AD%E8%A8%80/" title="C语言">C语言</a><time datetime="2024-09-07T04:00:00.000Z" title="发表于 2024-09-07 12:00:00">2024-09-07</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By yizhizhili</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.12.0"></script><script src="/js/main.js?v=4.12.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/canvas-fluttering-ribbon.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = true;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/click-heart.min.js" async="async" mobile="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="algolia-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="search-wrap"><div id="algolia-search-input"></div><hr/><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-info"><div class="algolia-stats"></div><div class="algolia-poweredBy"></div></div></div></div></div><div id="search-mask"></div><script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.22.0/dist/algoliasearch-lite.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.63.0/dist/instantsearch.production.min.js"></script><script src="/js/search/algolia.js?v=4.12.0"></script></div></div></body></html>
