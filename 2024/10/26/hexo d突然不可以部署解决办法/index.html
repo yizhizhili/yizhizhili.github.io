@@ -1,0 +1,241 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>hexo d突然不可以部署解决方案 | 戴晓军的个人博客</title><meta name="author" content="yizhizhili"><meta name="copyright" content="yizhizhili"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="​	由于有很长一段是时间没更新博客,我发现我的博客推送到github平台出现下面这种报错  一开始以为是我没开代理的原因,结果并不是,初步估计判断是我的DNS被污染了,前段时间系统DNS自动配置也出了问题,现在还是手动设置的,但是我正常使用梯子可以访问国外的油管,按道理来说应该没毛病,实在是让人摸不着头脑,所有我们另辟蹊径,使用SSH代理,进行推送,绝对有效,放心食用. 1. 确认 OpenSSH">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo d突然不可以部署解决方案">
+<meta property="og:url" content="http://yizhizhili.github.io/2024/10/26/hexo%20d%E7%AA%81%E7%84%B6%E4%B8%8D%E5%8F%AF%E4%BB%A5%E9%83%A8%E7%BD%B2%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/index.html">
+<meta property="og:site_name" content="戴晓军的个人博客">
+<meta property="og:description" content="​	由于有很长一段是时间没更新博客,我发现我的博客推送到github平台出现下面这种报错  一开始以为是我没开代理的原因,结果并不是,初步估计判断是我的DNS被污染了,前段时间系统DNS自动配置也出了问题,现在还是手动设置的,但是我正常使用梯子可以访问国外的油管,按道理来说应该没毛病,实在是让人摸不着头脑,所有我们另辟蹊径,使用SSH代理,进行推送,绝对有效,放心食用. 1. 确认 OpenSSH">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://yizhizhili.github.io/img/logo/avatar.jpg">
+<meta property="article:published_time" content="2024-10-26T15:30:00.000Z">
+<meta property="article:modified_time" content="2024-10-26T16:06:19.094Z">
+<meta property="article:author" content="yizhizhili">
+<meta property="article:tag" content="报错集">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yizhizhili.github.io/img/logo/avatar.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://yizhizhili.github.io/2024/10/26/hexo%20d%E7%AA%81%E7%84%B6%E4%B8%8D%E5%8F%AF%E4%BB%A5%E9%83%A8%E7%BD%B2%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.12.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: {"appId":"J21OOINT9G","apiKey":"5b81bf110b5e959d7f7e0e5f0b8dda8e","indexName":"dxj","hits":{"per_page":6,"labels":null,"input_placeholder":"Search for Posts"},"languages":{"input_placeholder":"搜索文章","hits_empty":"找不到您查询的内容：${query}","hits_stats":"找到 ${hits} 条结果，用时 ${time} 毫秒"}},
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'hexo d突然不可以部署解决方案',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-10-27 00:06:19'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/color.css"><link rel="stylesheet" href="/css/index.min.css"><meta name="generator" content="Hexo 7.1.1"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (false) {
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+  }
+})()</script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/../img/logo/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">21</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/../img/background/bg_1.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="戴晓军的个人博客"><img class="site-icon" src="/../img/logo/logo.jpg"/><span class="site-name">戴晓军的个人博客</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">hexo d突然不可以部署解决方案</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-10-26T15:30:00.000Z" title="发表于 2024-10-26 23:30:00">2024-10-26</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-10-26T16:06:19.094Z" title="更新于 2024-10-27 00:06:19">2024-10-27</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">749</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>2分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="hexo d突然不可以部署解决方案"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>​	由于有很长一段是时间没更新博客,我发现我的博客推送到github平台出现下面这种报错</p>
+<p><img src="/../img/1729956963701.png" alt="1729956963701"></p>
+<p>一开始以为是我没开代理的原因,结果并不是,初步估计判断是我的DNS被污染了,前段时间系统DNS自动配置也出了问题,现在还是手动设置的,但是我正常使用梯子可以访问国外的油管,按道理来说应该没毛病,实在是让人摸不着头脑,所有我们另辟蹊径,使用SSH代理,进行推送,绝对有效,放心食用.</p>
+<h3 id="1-确认-OpenSSH-已安装"><a href="#1-确认-OpenSSH-已安装" class="headerlink" title="1. 确认 OpenSSH 已安装"></a>1. 确认 OpenSSH 已安装</h3><p>首先，确保您的系统上已经安装了 OpenSSH 客户端。您可以通过以下步骤检查和安装：</p>
+<h4 id="使用-PowerShell-检查-OpenSSH"><a href="#使用-PowerShell-检查-OpenSSH" class="headerlink" title="使用 PowerShell 检查 OpenSSH"></a>使用 PowerShell 检查 OpenSSH</h4><p>打开 PowerShell 并运行以下命令：</p>
+<p>powershell</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Get-WindowsCapability</span> <span class="literal">-Online</span> | <span class="built_in">Where-Object</span> Name <span class="operator">-like</span> <span class="string">&#x27;OpenSSH*&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/../img/1729957850903.png" alt="1729957850903"></p>
+<p>显示如果和我一样就是已经安装好OpenSHH客户端和服务器了,</p>
+<p>如果 OpenSSH 客户端未安装，您可以使用以下命令安装：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装 OpenSSH 客户端</span></span><br><span class="line"><span class="built_in">Add-WindowsCapability</span> <span class="literal">-Online</span> <span class="literal">-Name</span> OpenSSH.Client~~~~<span class="number">0.0</span>.<span class="number">1.0</span></span><br></pre></td></tr></table></figure>
+
+<p>如果 OpenSSH 服务器未安装，您可以使用以下命令安装</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 安装 OpenSSH 服务器</span><br><span class="line">Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-生成-SSH-密钥对"><a href="#2-生成-SSH-密钥对" class="headerlink" title="2. 生成 SSH 密钥对"></a>2. 生成 SSH 密钥对</h3><p>如果您还没有生成 SSH 密钥对，可以使用以下命令生成：</p>
+<p>powershell</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh<span class="literal">-keygen</span> <span class="literal">-t</span> rsa <span class="literal">-b</span> <span class="number">4096</span> <span class="literal">-C</span> <span class="string">&quot;your_email@example.com&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>“<a href="mailto:&#x79;&#111;&#117;&#114;&#95;&#x65;&#109;&#x61;&#x69;&#x6c;&#x40;&#101;&#x78;&#97;&#109;&#x70;&#108;&#101;&#46;&#x63;&#111;&#x6d;">&#x79;&#111;&#117;&#114;&#95;&#x65;&#109;&#x61;&#x69;&#x6c;&#x40;&#101;&#x78;&#97;&#109;&#x70;&#108;&#101;&#46;&#x63;&#111;&#x6d;</a>“是你登入github使用的邮箱账号</p>
+<p>按照提示操作，生成的密钥对将保存在 <code>C:\Users\86195\.ssh\</code> 目录下，文件名为 <code>id_rsa</code>（私钥）和 <code>id_rsa.pub</code>（公钥）。</p>
+<h3 id="3-启动-SSH-代理并添加私钥"><a href="#3-启动-SSH-代理并添加私钥" class="headerlink" title="3. 启动 SSH 代理并添加私钥"></a>3. 启动 SSH 代理并添加私钥</h3><p>在 Windows 上，您可以使用 PowerShell 启动 SSH 代理并添加私钥：</p>
+<h4 id="启动-SSH-代理"><a href="#启动-SSH-代理" class="headerlink" title="启动 SSH 代理"></a>启动 SSH 代理</h4><p>powershell</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Start-Service</span> ssh<span class="literal">-agent</span></span><br><span class="line"><span class="built_in">Set-Service</span> <span class="literal">-Name</span> ssh<span class="literal">-agent</span> <span class="literal">-StartupType</span> Automatic</span><br></pre></td></tr></table></figure>
+
+<h4 id="添加私钥到-SSH-代理"><a href="#添加私钥到-SSH-代理" class="headerlink" title="添加私钥到 SSH 代理"></a>添加私钥到 SSH 代理</h4><p>powershell</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh<span class="literal">-add</span> C:\Users\<span class="number">86195</span>\.ssh\id_rsa</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-配置-SSH"><a href="#4-配置-SSH" class="headerlink" title="4. 配置 SSH"></a>4. 配置 SSH</h3><p>编辑或创建 <code>C:\Users\86195\.ssh\config</code> 文件，添加以下内容：</p>
+<p>plaintext</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Host github.com</span><br><span class="line">  User git</span><br><span class="line">  Hostname ssh.github.com</span><br><span class="line">  PreferredAuthentications publickey</span><br><span class="line">  IdentityFile ~/.ssh/id_rsa</span><br><span class="line">  Port 443</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-将公钥添加到-GitHub"><a href="#5-将公钥添加到-GitHub" class="headerlink" title="5. 将公钥添加到 GitHub"></a>5. 将公钥添加到 GitHub</h3><ol>
+<li><p>登录到您的 GitHub 账户。</p>
+</li>
+<li><p>访问 Settings &gt; SSH and GPG keys。</p>
+</li>
+<li><p>点击 “New SSH key” 或 “Add SSH key”。</p>
+</li>
+<li><p>在 “Title” 字段中，输入一个描述（例如 “My Laptop”）。</p>
+</li>
+<li><p>在 “Key” 字段中，粘贴您的公钥内容。您可以使用以下命令查看并复制公钥内容：</p>
+<p>powershell</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Get-Content</span> C:\Users\<span class="number">86195</span>\.ssh\id_rsa.pub</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>点击 “Add key”。</p>
+</li>
+</ol>
+<h3 id="6-测试-SSH-连接"><a href="#6-测试-SSH-连接" class="headerlink" title="6. 测试 SSH 连接"></a>6. 测试 SSH 连接</h3><p>powershell</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh <span class="literal">-T</span> git@github.com</span><br></pre></td></tr></table></figure>
+
+<p>如果一切设置正确，您将看到一条欢迎消息，表明您已成功连接到 GitHub如下图。</p>
+<p><img src="/../img/1729958508692.png" alt="1729958508692"></p>
+<p>最后一步:把你根目录文件下的<p style="color:yellow">_config.yml</p>这个文件里面的deploy设置为ssh即可</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repository:</span> <span class="string">git@github.com:your_name/your_name.github.io.gi</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">main</span></span><br></pre></td></tr></table></figure>
+
+<p>这样恭喜你就可以通过SSH代理的方式推送了,就算没成功,你也可以试试别的方法,不要放弃,加油</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://yizhizhili.github.io">yizhizhili</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://yizhizhili.github.io/2024/10/26/hexo%20d%E7%AA%81%E7%84%B6%E4%B8%8D%E5%8F%AF%E4%BB%A5%E9%83%A8%E7%BD%B2%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/">http://yizhizhili.github.io/2024/10/26/hexo%20d%E7%AA%81%E7%84%B6%E4%B8%8D%E5%8F%AF%E4%BB%A5%E9%83%A8%E7%BD%B2%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://yizhizhili.github.io" target="_blank">戴晓军的个人博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%8A%A5%E9%94%99%E9%9B%86/">报错集</a></div><div class="post_share"><div class="social-share" data-image="/../img/logo/avatar.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2024/09/23/java/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" title="Hello World"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Hello World</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/../img/logo/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">yizhizhili</div><div class="author-info__description">分享知识，认识世界</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">21</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://yizhizhili.github.io/img/logo/qq.png" target="_blank" title="QQ"><i class="fab fa-qq" style="color: rgb(65,166,208);"></i></a><a class="social-icon" href="https://github.com/yizhizhili" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:3143623706@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content"></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%A1%AE%E8%AE%A4-OpenSSH-%E5%B7%B2%E5%AE%89%E8%A3%85"><span class="toc-number">1.</span> <span class="toc-text">1. 确认 OpenSSH 已安装</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-PowerShell-%E6%A3%80%E6%9F%A5-OpenSSH"><span class="toc-number">1.1.</span> <span class="toc-text">使用 PowerShell 检查 OpenSSH</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%94%9F%E6%88%90-SSH-%E5%AF%86%E9%92%A5%E5%AF%B9"><span class="toc-number">2.</span> <span class="toc-text">2. 生成 SSH 密钥对</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%90%AF%E5%8A%A8-SSH-%E4%BB%A3%E7%90%86%E5%B9%B6%E6%B7%BB%E5%8A%A0%E7%A7%81%E9%92%A5"><span class="toc-number">3.</span> <span class="toc-text">3. 启动 SSH 代理并添加私钥</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8-SSH-%E4%BB%A3%E7%90%86"><span class="toc-number">3.1.</span> <span class="toc-text">启动 SSH 代理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E7%A7%81%E9%92%A5%E5%88%B0-SSH-%E4%BB%A3%E7%90%86"><span class="toc-number">3.2.</span> <span class="toc-text">添加私钥到 SSH 代理</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E9%85%8D%E7%BD%AE-SSH"><span class="toc-number">4.</span> <span class="toc-text">4. 配置 SSH</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E5%B0%86%E5%85%AC%E9%92%A5%E6%B7%BB%E5%8A%A0%E5%88%B0-GitHub"><span class="toc-number">5.</span> <span class="toc-text">5. 将公钥添加到 GitHub</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E6%B5%8B%E8%AF%95-SSH-%E8%BF%9E%E6%8E%A5"><span class="toc-number">6.</span> <span class="toc-text">6. 测试 SSH 连接</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/10/26/hexo%20d%E7%AA%81%E7%84%B6%E4%B8%8D%E5%8F%AF%E4%BB%A5%E9%83%A8%E7%BD%B2%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" title="hexo d突然不可以部署解决方案">hexo d突然不可以部署解决方案</a><time datetime="2024-10-26T15:30:00.000Z" title="发表于 2024-10-26 23:30:00">2024-10-26</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/23/java/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" title="Hello World">Hello World</a><time datetime="2024-09-23T02:15:49.000Z" title="发表于 2024-09-23 10:15:49">2024-09-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/08/Linux/Linux/" title="无题">无题</a><time datetime="2024-09-08T08:00:20.415Z" title="发表于 2024-09-08 16:00:20">2024-09-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/07/%E7%BD%91%E7%AB%99%E5%88%86%E4%BA%AB/" title="网站分享">网站分享</a><time datetime="2024-09-07T04:00:00.000Z" title="发表于 2024-09-07 12:00:00">2024-09-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/07/C%E8%AF%AD%E8%A8%80/C%E8%AF%AD%E8%A8%80/" title="C语言">C语言</a><time datetime="2024-09-07T04:00:00.000Z" title="发表于 2024-09-07 12:00:00">2024-09-07</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By yizhizhili</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.12.0"></script><script src="/js/main.js?v=4.12.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/canvas-fluttering-ribbon.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = true;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/click-heart.min.js" async="async" mobile="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="algolia-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="search-wrap"><div id="algolia-search-input"></div><hr/><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-info"><div class="algolia-stats"></div><div class="algolia-poweredBy"></div></div></div></div></div><div id="search-mask"></div><script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.22.0/dist/algoliasearch-lite.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.63.0/dist/instantsearch.production.min.js"></script><script src="/js/search/algolia.js?v=4.12.0"></script></div></div></body></html>
