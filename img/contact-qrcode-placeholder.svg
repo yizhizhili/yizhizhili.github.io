@@ -1,0 +1,28 @@
+<svg width="800" height="800" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="800" rx="48" fill="white"/>
+  <rect x="56" y="56" width="688" height="688" rx="40" fill="white" stroke="black" stroke-opacity="0.14" stroke-width="16"/>
+  <rect x="112" y="112" width="168" height="168" rx="24" fill="black"/>
+  <rect x="148" y="148" width="96" height="96" rx="14" fill="white"/>
+  <rect x="520" y="112" width="168" height="168" rx="24" fill="black"/>
+  <rect x="556" y="148" width="96" height="96" rx="14" fill="white"/>
+  <rect x="112" y="520" width="168" height="168" rx="24" fill="black"/>
+  <rect x="148" y="556" width="96" height="96" rx="14" fill="white"/>
+  <rect x="338" y="116" width="38" height="38" rx="8" fill="black"/>
+  <rect x="402" y="116" width="38" height="38" rx="8" fill="black"/>
+  <rect x="338" y="180" width="38" height="38" rx="8" fill="black"/>
+  <rect x="434" y="180" width="38" height="38" rx="8" fill="black"/>
+  <rect x="306" y="298" width="60" height="60" rx="10" fill="black"/>
+  <rect x="396" y="298" width="60" height="60" rx="10" fill="black"/>
+  <rect x="486" y="298" width="60" height="60" rx="10" fill="black"/>
+  <rect x="306" y="388" width="60" height="60" rx="10" fill="black"/>
+  <rect x="396" y="388" width="60" height="60" rx="10" fill="black"/>
+  <rect x="486" y="388" width="60" height="60" rx="10" fill="black"/>
+  <rect x="338" y="520" width="38" height="38" rx="8" fill="black"/>
+  <rect x="402" y="520" width="38" height="38" rx="8" fill="black"/>
+  <rect x="466" y="520" width="38" height="38" rx="8" fill="black"/>
+  <rect x="338" y="584" width="38" height="38" rx="8" fill="black"/>
+  <rect x="434" y="584" width="38" height="38" rx="8" fill="black"/>
+  <rect x="530" y="584" width="38" height="38" rx="8" fill="black"/>
+  <path d="M314 704H486" stroke="black" stroke-opacity="0.12" stroke-width="20" stroke-linecap="round"/>
+  <text x="400" y="748" text-anchor="middle" font-size="34" fill="black" font-family="Microsoft YaHei, Arial, sans-serif">替换为你的联系人二维码</text>
+</svg>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Hello World</title>
+    <url>/2026/06/06/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h1>你好世界</h1>]]></content>
+  </entry>
+  <entry>
+    <title>毕设项目 001</title>
+    <url>/2026/06/27/%E6%B5%8B%E8%AF%95%E9%A1%B9%E7%9B%AE/</url>
+    <content><![CDATA[<h2 id="项目功能介绍"><a href="#项目功能介绍" class="headerlink" title="项目功能介绍"></a>项目功能介绍</h2><p>这里写你的项目介绍。</p>
+<h2 id="演示视频"><a href="#演示视频" class="headerlink" title="演示视频"></a>演示视频</h2><p><video src="/img/project-001-demo.mp4" controls style="width:100%; border-radius:16px;"></video></p>
+<h2 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式"></a>联系方式</h2><p><img src="/img/qrcode.jpg" alt="联系人二维码"></p>
+]]></content>
+      <categories>
+        <category>毕设项目</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Spring Boot</tag>
+        <tag>Vue</tag>
+      </tags>
+  </entry>
+</search>
