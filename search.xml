@@ -11,7 +11,7 @@
     <url>/2026/06/27/%E6%B5%8B%E8%AF%95%E9%A1%B9%E7%9B%AE/</url>
     <content><![CDATA[<h2 id="项目功能介绍"><a href="#项目功能介绍" class="headerlink" title="项目功能介绍"></a>项目功能介绍</h2><p>这里写你的项目介绍。</p>
 <h2 id="演示视频"><a href="#演示视频" class="headerlink" title="演示视频"></a>演示视频</h2><p><video src="/img/project-001-demo.mp4" controls style="width:100%; border-radius:16px;"></video></p>
-<h2 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式"></a>联系方式</h2><p><img src="/img/qrcode.jpg" alt="联系人二维码"></p>
+<h2 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式"></a>联系方式</h2><p><img src="/img/wechat.png" alt="联系人二维码"></p>
 ]]></content>
       <categories>
         <category>毕设项目</category>
@@ -20,6 +20,251 @@
         <tag>Java</tag>
         <tag>Spring Boot</tag>
         <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>基于 SpringBoot + Vue3 的大学生校园流浪动物救助平台</title>
+    <url>//project/campus-animal-rescue/</url>
+    <content><![CDATA[<div class="project-hero">
+  <div class="project-panel">
+    <span class="project-label">项目编号</span>
+    <strong class="project-value">BS-002</strong>
+    <p>基于 SpringBoot + Vue3 的大学生校园流浪动物救助平台</p>
+  </div>
+  <div class="project-panel">
+    <span class="project-label">适用场景</span>
+    <strong class="project-value">毕业设计 / 课程设计 / 答辩演示</strong>
+    <p>适合软件工程、计算机科学与技术、信息管理等相关专业。</p>
+  </div>
+</div>
+
+<h2 id="项目功能介绍"><a href="#项目功能介绍" class="headerlink" title="项目功能介绍"></a>项目功能介绍</h2><p>本系统围绕高校校园流浪动物救助场景设计，包含前台用户端与后台管理端。前台面向高校学生志愿者、领养申请人和普通用户，后台面向管理员进行审核、统计和内容管理。</p>
+<div class="project-feature-list">
+  <div class="project-feature-item">
+    <h3>前台用户端</h3>
+    <p>支持注册登录、找回密码、首页信息展示、流浪动物浏览、动物详情查看、动物信息上报、领养申请、志愿活动报名、捐赠记录、论坛互动和个人中心。</p>
+  </div>
+  <div class="project-feature-item">
+    <h3>后台管理端</h3>
+    <p>支持管理员登录、用户审核、高校管理、动物档案管理、领养审核、志愿活动管理、论坛审核、捐赠管理、回访监督、公告设置和系统配置。</p>
+  </div>
+  <div class="project-feature-item">
+    <h3>数据统计</h3>
+    <p>支持基于 ECharts 的综合报表、高校分类统计、动物类型统计、领养成功率统计、回访完成率统计、问题处理统计和数据导出。</p>
+  </div>
+  <div class="project-feature-item">
+    <h3>业务闭环</h3>
+    <p>覆盖动物发现上报、管理员审核、救助档案维护、领养申请审核、领养后回访、异常问题处理和社区交流。</p>
+  </div>
+</div>
+
+<h2 id="核心模块"><a href="#核心模块" class="headerlink" title="核心模块"></a>核心模块</h2><table>
+<thead>
+<tr>
+<th>模块</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>用户模块</td>
+<td>用户注册、登录、找回密码、资料维护、消息提醒</td>
+</tr>
+<tr>
+<td>流浪动物模块</td>
+<td>动物列表、条件筛选、详情展示、图片信息、健康状态、救助故事</td>
+</tr>
+<tr>
+<td>领养模块</td>
+<td>领养申请、审核进度、领养指南、回访记录</td>
+</tr>
+<tr>
+<td>志愿服务模块</td>
+<td>活动列表、活动详情、在线报名、志愿记录</td>
+</tr>
+<tr>
+<td>捐赠模块</td>
+<td>物资捐赠、资金捐赠、捐赠历史、使用反馈</td>
+</tr>
+<tr>
+<td>宠物论坛模块</td>
+<td>动态发布、点赞、评论、内容审核</td>
+</tr>
+<tr>
+<td>后台管理模块</td>
+<td>高校管理、用户审核、动物档案、活动管理、公告设置</td>
+</tr>
+<tr>
+<td>统计报表模块</td>
+<td>综合看板、分类统计、领养统计、数据导出</td>
+</tr>
+</tbody></table>
+<h2 id="技术栈"><a href="#技术栈" class="headerlink" title="技术栈"></a>技术栈</h2><table>
+<thead>
+<tr>
+<th>层级</th>
+<th>技术</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>前端</td>
+<td>Vue3、Vue Router、Pinia、Element Plus、Axios、Vite</td>
+</tr>
+<tr>
+<td>后端</td>
+<td>Spring Boot 2.7、Spring MVC、MyBatis Plus、Lombok</td>
+</tr>
+<tr>
+<td>数据库</td>
+<td>MySQL</td>
+</tr>
+<tr>
+<td>图表</td>
+<td>ECharts</td>
+</tr>
+<tr>
+<td>文件上传</td>
+<td>Spring Boot Multipart，支持图片和回访视频等资源上传</td>
+</tr>
+<tr>
+<td>运行环境</td>
+<td>JDK 8、Node.js、MySQL</td>
+</tr>
+</tbody></table>
+<h2 id="数据表设计"><a href="#数据表设计" class="headerlink" title="数据表设计"></a>数据表设计</h2><p>系统包含高校、用户、动物档案、领养申请、志愿活动、报名记录、捐赠记录、论坛动态、论坛评论、回访记录、公告、消息、系统设置、问题反馈等核心数据表。</p>
+<table>
+<thead>
+<tr>
+<th>数据表</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>school</code></td>
+<td>高校信息</td>
+</tr>
+<tr>
+<td><code>sys_user</code></td>
+<td>系统用户与志愿者信息</td>
+</tr>
+<tr>
+<td><code>animal</code></td>
+<td>流浪动物档案</td>
+</tr>
+<tr>
+<td><code>adoption_application</code></td>
+<td>领养申请</td>
+</tr>
+<tr>
+<td><code>volunteer_activity</code></td>
+<td>志愿活动</td>
+</tr>
+<tr>
+<td><code>volunteer_signup</code></td>
+<td>志愿活动报名</td>
+</tr>
+<tr>
+<td><code>donation</code></td>
+<td>捐赠记录</td>
+</tr>
+<tr>
+<td><code>forum_post</code> &#x2F; <code>forum_comment</code></td>
+<td>论坛动态与评论</td>
+</tr>
+<tr>
+<td><code>visit_record</code></td>
+<td>领养回访记录</td>
+</tr>
+<tr>
+<td><code>report</code></td>
+<td>问题反馈与举报</td>
+</tr>
+</tbody></table>
+<h2 id="项目截图"><a href="#项目截图" class="headerlink" title="项目截图"></a>项目截图</h2><div class="project-screenshot-grid">
+  <figure>
+    <img src="/img/BS-002/图片%201.png" alt="BS-002 登录页面">
+    <figcaption>登录页面</figcaption>
+  </figure>
+  <figure>
+    <img src="/img/BS-002/图片%202.png" alt="BS-002 系统首页">
+    <figcaption>系统首页</figcaption>
+  </figure>
+  <figure>
+    <img src="/img/BS-002/图片%203.png" alt="BS-002 用户注册">
+    <figcaption>用户注册</figcaption>
+  </figure>
+  <figure>
+    <img src="/img/BS-002/图片%204.png" alt="BS-002 动物详情与领养">
+    <figcaption>动物详情与领养</figcaption>
+  </figure>
+  <figure>
+    <img src="/img/BS-002/图片%205.png" alt="BS-002 动物信息上报">
+    <figcaption>动物信息上报</figcaption>
+  </figure>
+  <figure>
+    <img src="/img/BS-002/图片%206.png" alt="BS-002 志愿服务">
+    <figcaption>志愿服务</figcaption>
+  </figure>
+  <figure>
+    <img src="/img/BS-002/图片%207.png" alt="BS-002 爱心捐赠">
+    <figcaption>爱心捐赠</figcaption>
+  </figure>
+  <figure>
+    <img src="/img/BS-002/图片%208.png" alt="BS-002 宠物论坛">
+    <figcaption>宠物论坛</figcaption>
+  </figure>
+  <figure>
+    <img src="/img/BS-002/图片%209.png" alt="BS-002 个人中心">
+    <figcaption>个人中心</figcaption>
+  </figure>
+  <figure>
+    <img src="/img/BS-002/图片%2010.png" alt="BS-002 举报中心">
+    <figcaption>举报中心</figcaption>
+  </figure>
+  <figure>
+    <img src="/img/BS-002/图片%2011.png" alt="BS-002 后台数据统计">
+    <figcaption>后台数据统计</figcaption>
+  </figure>
+  <figure>
+    <img src="/img/BS-002/图片%2012.png" alt="BS-002 后台管理看板">
+    <figcaption>后台管理看板</figcaption>
+  </figure>
+</div>
+
+<h2 id="演示视频"><a href="#演示视频" class="headerlink" title="演示视频"></a>演示视频</h2><div class="project-video">
+  <video controls preload="metadata" poster="/img/BS-002/图片%202.png">
+    <source src="/img/BS-002/Video_2026-03-19_201852-soConvert.mp4" type="video/mp4">
+    当前浏览器不支持 MP4 视频播放，请下载后查看。
+  </video>
+</div>
+
+<p class="project-video-tip">
+  如果视频无法播放，可以直接访问 <a href="/img/BS-002/Video_2026-03-19_201852-soConvert.mp4" download>演示视频文件</a> 下载查看。
+</p>
+
+<h2 id="交付内容"><a href="#交付内容" class="headerlink" title="交付内容"></a>交付内容</h2><ul>
+<li>前端源码：<code>front/</code></li>
+<li>后端源码：<code>springboot/</code></li>
+<li>数据库脚本：<code>schema.sql</code>、<code>data.sql</code></li>
+<li>功能清单：<code>功能清单.md</code></li>
+<li>可运行基础环境：JDK 8、MySQL、Node.js</li>
+</ul>
+<h2 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式"></a>联系方式</h2><div class="project-contact-card">
+  <img src="/img/wechat.png" alt="联系人二维码">
+  <div>
+    <div class="project-code-badge">联系备注：项目编号 BS-002</div>
+    <p>咨询时请备注项目编号，方便快速定位对应系统。</p>
+  </div>
+</div>
+]]></content>
+      <categories>
+        <category>毕设项目</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Spring Boot</tag>
+        <tag>Vue3</tag>
+        <tag>MySQL</tag>
+        <tag>Element Plus</tag>
       </tags>
   </entry>
 </search>

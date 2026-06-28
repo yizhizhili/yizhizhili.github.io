@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-label="Campus animal rescue system cover">
+  <defs>
+    <pattern id="dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle cx="4" cy="4" r="1.8" fill="#111" opacity=".18"/>
+    </pattern>
+    <filter id="rough">
+      <feTurbulence type="fractalNoise" baseFrequency=".012" numOctaves="2" seed="8"/>
+      <feDisplacementMap in="SourceGraphic" scale="2"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="675" fill="#fff"/>
+  <rect x="28" y="28" width="1144" height="619" rx="42" fill="none" stroke="#111" stroke-width="6"/>
+  <rect x="65" y="66" width="1070" height="542" rx="34" fill="url(#dots)" opacity=".55"/>
+  <g stroke="#111" stroke-width="5" fill="#fff" filter="url(#rough)">
+    <path d="M170 158h304v190H170z"/>
+    <path d="M730 126h294v220H730z"/>
+    <path d="M458 385h514v146H458z"/>
+  </g>
+  <g fill="none" stroke="#111" stroke-width="5" stroke-linecap="round">
+    <path d="M116 116 80 88M139 96l-10-46M178 86 194 45"/>
+    <path d="M1048 478l48-28M1036 520l58 8M1024 559l42 38"/>
+    <path d="M226 515c-34 18-68 28-105 32M242 548c-37 20-74 31-117 38"/>
+  </g>
+  <g transform="translate(205 180)" stroke="#111" stroke-width="7" fill="#fff" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M120 198c-74 0-125-40-125-99C-5 42 49 2 118 2s124 40 124 97c0 59-50 99-122 99Z"/>
+    <path d="M36 25 10-38 84 4M199 25l31-61-77 39"/>
+    <path d="M78 88h.1M161 88h.1"/>
+    <path d="M113 114c15 12 27 12 42 0"/>
+    <path d="M111 116 82 135M155 116l30 19"/>
+  </g>
+  <g transform="translate(782 172)" stroke="#111" stroke-width="7" fill="#fff" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M68 158c-40-15-66-48-58-93C21 8 83-3 123 30c38-34 101-23 111 35 9 49-24 84-69 98"/>
+    <path d="M84 68h.1M158 68h.1"/>
+    <path d="M113 95c17 10 28 10 45 0"/>
+    <path d="M42 33 21-20 88 8M198 32l28-52-70 24"/>
+  </g>
+  <g transform="translate(510 424)" fill="#111">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="54" font-weight="900">CAMPUS RESCUE</text>
+    <text x="2" y="56" font-family="Arial, sans-serif" font-size="28" font-weight="700">Spring Boot + Vue3 + MySQL</text>
+  </g>
+  <g fill="#fff" stroke="#111" stroke-width="4">
+    <circle cx="1022" cy="102" r="26"/>
+    <path d="M1022 60v84M980 102h84"/>
+    <circle cx="125" cy="405" r="20"/>
+    <path d="M125 373v64M93 405h64"/>
+  </g>
+</svg>
