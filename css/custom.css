@@ -1446,6 +1446,59 @@ body::after {
   transform: none;
 }
 
+/* Post detail hero: black-and-white manga background for desktop and mobile. */
+#page-header.post-bg {
+  background-color: #ffffff !important;
+  background-image: url("/img/PC-WZBG.png") !important;
+  background-position: center center !important;
+  background-size: cover !important;
+}
+
+#page-header.post-bg::before {
+  background: rgba(255, 255, 255, 0.12) !important;
+}
+
+#page-header.post-bg::after {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0) 56%, rgba(255, 255, 255, 0.92) 100%) !important;
+}
+
+#page-header.post-bg #post-info .post-title,
+#page-header.post-bg #post-meta,
+#page-header.post-bg #post-meta a,
+#page-header.post-bg #post-meta time,
+#page-header.post-bg #post-meta span {
+  color: #000000 !important;
+  text-shadow:
+    0 2px 0 rgba(255, 255, 255, 0.92),
+    0 10px 24px rgba(255, 255, 255, 0.82) !important;
+}
+
+#page-header.post-bg #nav a,
+#page-header.post-bg #nav .site-name,
+#page-header.post-bg #nav #site-name,
+#page-header.post-bg #nav .menus_items .menus_item .site-page,
+#page-header.post-bg #nav #search-button .search,
+#page-header.post-bg #nav #toggle-menu {
+  color: #1f1f1f !important;
+  text-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.96),
+    0 8px 18px rgba(255, 255, 255, 0.82) !important;
+}
+
+#page-header.post-bg #nav .menus_items .menus_item .site-page:hover,
+#page-header.post-bg #nav #search-button .search:hover,
+#page-header.post-bg #nav #toggle-menu:hover {
+  color: #000000 !important;
+}
+
+@media screen and (max-width: 768px) {
+  #page-header.post-bg {
+    background-image: url("/img/MD-WZBG.png") !important;
+    background-position: center top !important;
+  }
+}
+
 /* Post footer: copyright notice and social share buttons. */
 #post .post-copyright {
   margin: 36px 0 16px;

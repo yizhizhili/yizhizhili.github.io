@@ -231,15 +231,15 @@
 </div>
 
 <h2 id="演示视频"><a href="#演示视频" class="headerlink" title="演示视频"></a>演示视频</h2><div class="project-video">
-  <video controls preload="metadata" poster="/img/BS-002/图片%202.png">
-    <source src="/img/BS-002/Video_2026-03-19_201852-soConvert.mp4" type="video/mp4">
-    当前浏览器不支持 MP4 视频播放，请下载后查看。
-  </video>
+  <iframe
+    src="https://player.bilibili.com/player.html?isOutside=true&aid=116826549847556&bvid=BV1HwTu6EERx&cid=39475154861&p=1"
+    scrolling="no"
+    border="0"
+    frameborder="no"
+    framespacing="0"
+    allowfullscreen="true">
+  </iframe>
 </div>
-
-<p class="project-video-tip">
-  如果视频无法播放，可以直接访问 <a href="/img/BS-002/Video_2026-03-19_201852-soConvert.mp4" download>演示视频文件</a> 下载查看。
-</p>
 
 <h2 id="交付内容"><a href="#交付内容" class="headerlink" title="交付内容"></a>交付内容</h2><ul>
 <li>前端源码：<code>front/</code></li>
